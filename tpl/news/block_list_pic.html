@@ -1,0 +1,18 @@
+<h3 class="widget-title"><span>{$item_title}</span></h3>  
+<ul>
+<!-- loop from=$data key=$key value=$value id=mindex-->
+<li class="item">
+    <div class="item-img">
+        <a href="{$value.url}" title="{$value.title}">
+            <img class="j-lazy" src="" data-original="{if $value.thumb.gd.small_thumb}{$value.thumb.gd.small_thumb}{else}{$value.thumb.filename}{/if}" > 
+        </a>
+    </div>
+    <div class="item-content">
+        <p class="item-title">
+            <a href="{$value.url}" title="{$value.title}">{$value.title}</a>
+            </p>
+        <p class="item-date">{=date('Y-m-d H:i',$value.dateline)}</p>
+    </div>
+</li>
+<!-- /loop -->
+</ul>

@@ -1,0 +1,106 @@
+﻿<!-- include tpl=head highlight=1 -->
+<div id="wrap">
+    <div class="main container">
+        <div class="content">
+            <div class="slider-wrap clearfix">
+            <!-- php:$list = phpok('picplayer') -->
+            <!-- if $list.total -->
+                <div class="main-slider flexslider pull-left">
+                    <div class="flex-viewport">
+                        <ul class="slides" >
+                            <!-- loop from=$list.rslist key=$key value=$value -->
+                            <li class="slide-item" >
+                                <a href="{$value.link}" target="{$value.target}" title="{$value.title}">
+                                    <img class="j-lazy" src="{$value.pic.filename}"  alt="{$value.title}" draggable="false">
+                                </a>
+                                <h3 class="slide-title">
+                                    <a href="{$value.link}" target="{$value.target}">{$value.title}</a>
+                                </h3>
+                            </li>
+                            <!-- /loop -->
+                        </ul>
+                    </div>
+                    <ol class="flex-control-nav flex-control-paging">
+                        
+                    </ol>
+                    <ul class="flex-direction-nav">
+                        <li class="flex-nav-prev"><a class="flex-prev" href="#">Previous</a></li>
+                        <li class="flex-nav-next"><a class="flex-next" href="#">Next</a></li>
+                    </ul>
+                </div>
+            <!-- /if -->
+
+            <!-- php:$news_cate_tree = phpok('news_catelist') -->
+            <!-- php:$pid = $news_cate_tree.project.id-->
+            <!-- php:$news_catelist = $news_cate_tree.sublist -->
+                <ul class="feature-post pull-right">
+                    <!-- loop from=$news_catelist key=$key value=$value -->
+                    <!-- if $value.thumb.filename -->
+                    <li>
+                        <a href="{$value.link}?id=news&cate={$value.identifier}" target="{$value.target}" title="{$value.title}">
+                            <img src="{$value.thumb.filename}" alt="{$value.title}">
+                        </a>
+                        <span>{$value.title}</span>
+                    </li>
+                    <!-- /if -->
+                    <!-- /loop -->
+                </ul>
+            </div>
+
+            <div class="sec-panel main-list">
+                <div class="sec-panel-head">
+                    <ul class="list tabs" id="j-newslist">
+                        <li class="tab active"><a data-id="0" href="javascript:;">最新</a></li>
+                        <!-- loop from=$news_catelist key=$key value=$value id=mindex-->
+                        <li class="tab "><a data-identifier="{$value.identifier}" href="javascript:;">{$value.title}</a></li>
+                        <!-- /loop -->
+                    </ul>
+                </div>
+                <ul class="article-list tab-list active"> 
+                <!-- php:$news_list = phpok('zixunzhongxin') -->
+                    <!-- loop from=$news_list.rslist key=$key value=$value id=mindex-->
+                     <li class="item">
+                        <div class="item-img">
+                            <a href="{$value.url}" title="{$value.title}" >
+                                <img class="j-lazy" src="images/loading.gif" data-original="{if $value.thumb.gd.big_thumb}{$value.thumb.gd.big_thumb}{else}{$value.thumb.filename}{/if}" >
+                            </a>
+                            <a class="item-category" href="{$value.cate.url}">{$value.cate.title}</a>
+                        </div>
+                        <div class="item-content">
+                            <h2 class="item-title">
+                            <a href="{$value.url}" title="{$value.title}" >{$value.title}</a>
+                            </h2>
+                            <div class="item-excerpt">
+                                <p>
+                                    {$value.note}
+                                </p>
+                            </div>
+                            <div class="item-meta">
+                                <span class="item-meta-li date">{=date('Y-m-d')}</span>
+                                <span class="item-meta-li views" title="阅读数"><i class="fa fa-eye"></i> <span class="data">{$value.hits}</span></span>
+                            </div>
+                        </div>
+                    </li>
+                    <!-- /loop -->
+                    <li class="load-more-wrap">
+                        <a class="load-more" href="javascript:;" data-cate=''>点击查看更多</a>
+                    </li>
+                </ul>
+
+                <!-- loop from=$news_catelist key=$key value=$value id=mindex-->
+                    <ul class="article-list tab-list " ></ul>
+                 <!-- /loop -->
+            </div>
+        </div>
+        <aside class="sidebar">
+           <div id="image-ad-3" class="widget widget_views">
+                <!-- include tpl=block_tag -->
+            </div>
+            <div id="views-2" class="widget widget_views">
+                <!-- php:$pid = NEWS_PROJECT_ID-->
+                <!-- php:$news_list = phpok('_arclist', "pid=$pid&psize=10&in_text=0&in_project=0&in_cate=0&orderby=hits desc") -->
+                <!-- include tpl=block_list_title item_title=热门阅读 data=$news_list.rslist-->
+            </div>
+        </aside>
+    </div>
+    <!-- include tpl=foot -->

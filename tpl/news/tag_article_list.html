@@ -1,0 +1,56 @@
+﻿<!-- include tpl=head -->
+<div id="wrap">
+    <div class="main container">
+        <div class="content">
+            <div class="sec-panel main-list">
+                <div class="sec-panel-head">
+                    <h1>{if $tag_title}<span class='tag_title'>标签： </span>{$tag_title}{else}<span class='tag_title'>关键字： </span>{$keywords}{/if}</h1>
+                </div>
+                <ul class="article-list">
+                <!-- loop from=$rslist key=$key value=$value id=mindex-->
+                     <li class="item">
+                        <div class="item-img">
+                            <a href="{$value.url}" title="{$value.title}" >
+                                <img class="j-lazy" src="" data-original="{if $value.thumb.gd.big_thumb}{$value.thumb.gd.big_thumb}{else}{$value.thumb.filename}{/if}" >
+                            </a>
+                            <!-- if $value.cate.url-->
+                            <a class="item-category" href="{$value.cate.url}">{$value.cate.title}</a>
+                            <!-- else -->
+                            <!-- php:$cateid = $value['cate_id'];-->
+                            <a class="item-category" href="{$value['_catelist'][$cateid]['url']}">{$value['_catelist'][$cateid]['title']}</a>
+                            <!-- /if -->
+                        </div>
+                        <div class="item-content">
+                            <h2 class="item-title">
+                            <a href="{$value.url}" title="{$value.title}" >{$value.title}</a>
+                            </h2>
+                            <div class="item-excerpt">
+                                <p>
+                                    {$value.note}
+                                </p>
+                            </div>
+                            <div class="item-meta">
+                                <span class="item-meta-li date">{=date('Y-m-d H:i',$value.dateline)}</span>
+                                <span class="item-meta-li views" title="阅读数"><i class="fa fa-eye"></i> <span class="data">{$value.hits}</span></span>
+                            </div>
+                        </div>
+                    </li>
+                    <!-- /loop -->
+                </ul>
+               <!-- include tpl=block_pagelist -->
+            </div>
+        </div>
+        
+        <aside class="sidebar">
+            <div id="image-ad-3" class="widget widget_views">
+                <!-- include tpl=block_tag -->
+            </div>
+            <div id="post-thumb-2" class="widget widget_post_thumb">
+                <!-- php:$pid = NEWS_PROJECT_ID-->
+                <!-- php:$news_list = phpok('_arclist', "pid=$pid&psize=10&in_text=0&in_project=0&in_cate=0") -->
+                <!-- include tpl=block_list_pic item_title=最新发布 data=$news_list.rslist-->
+            </div>
+        </aside>
+    </div>
+</div>
+   <!-- include tpl=foot -->

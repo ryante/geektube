@@ -1,0 +1,7 @@
+<!-- php:$pagelist = phpok_page($pageurl,$total,$pageid,$psize,"prev=上一页&next=下一页&last=末页&home=首页&always=1") -->
+<div class="pagination clearfix">
+<!-- loop from=$pagelist key=$key value=$value -->
+        <a href="{$value.url}" title="{$value.title}" {if $value.status} class="current"{/if}>{$value.title}</a>
+<!-- /loop -->
+</div>
+      

@@ -1,0 +1,80 @@
+<!-- include tpl=head -->
+</header>
+<div id="wrap">
+    <div class="main container">
+        <div class="content">
+            <article id="post-312"
+                     class="post-312 post type-post status-publish format-standard has-post-thumbnail hentry category-1 tag-82 tag-81 tag-83">
+                <div class="entry">
+                    <div class="entry-head">
+                        <h1 class="entry-title">{$rs.title}</h1>
+                        <div class="entry-info">
+                            <span>{=date('Y-m-d H:i')}</span>
+                            <span class="dot">•</span>
+                            <!-- php:$cateid = $rs.cate_id-->
+                            <a href="{$rs['_catelist'][$cateid]['url']}"
+                               rel="category tag">{$rs['_catelist'][$cateid]['title']}</a> <span class="dot">•</span>
+                            <span>阅读 {$rs.hits}</span>
+                        </div>
+                    </div>
+                    <div class="main-content clearfix">
+                        <!-- if $rs.thumb.filename -->
+                        <div class="topic-cover">
+                            <img class="j-lazy" src='images/load.gif' data-original="{$rs.thumb.filename}" alt="{$rs.title}" style="width: 100%">
+                        </div>
+                        <!-- /if -->
+                        <div class="article-content">
+                            {$rs.content}
+                        </div>
+                        <!-- if $rs.linkurl -->
+                        <div class="entry-copyright">
+                            <p>本文来自转载，原文地址：<a href="{$rs.linkurl}">{$rs.linkurl}</a></p>
+                        </div>
+                        <!-- /if -->
+                    </div>
+                    <div class="entry-footer">
+                        <div class="entry-tag">
+                        <!-- loop from=$rs.tag key=$key value=$value -->
+                            <a href="{if $value.url}{$value.url}{else}{url ctrl=tag title=$value.title /}{/if}" rel="tag">{$value.title}</a>
+                        <!-- /loop -->
+                        </div>
+                        
+                        <p class="line"></p>
+                        <div class="near-subject">
+                            <ul>
+                                <li>下一篇：
+                                <!-- php:$next = phpok_next($rs) -->
+                                  <!-- if $next -->
+                                  <a href="{$next.url}" title="{$next.title}">{$next.title}</a>
+                                  <!-- else -->
+                                <span class='no-subject'>没有了</span>
+                                  <!-- /if -->
+                                </li>
+                                <li>下一篇：
+                                <!-- php:$prev = phpok_prev($rs) -->
+                                <!-- if $prev -->
+                                <a href="{$prev.url}" title="{$prev.title}">{$prev.title}</a>
+                                <!-- else -->
+                                <span class='no-subject'>没有了</span>
+                                <!-- /if -->
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </div>
+        <aside class="sidebar">
+            <div id="image-ad-3" class="widget widget_views">
+                <!-- include tpl=block_tag -->
+            </div>
+            <div id="post-thumb-2" class="widget widget_post_thumb">
+                <!-- php:$pid = $rs.project_id-->
+                <!-- php:$cate_id = $rs.cate_id-->
+                <!-- php:$news_list = phpok('_arclist', "pid=$pid&cateid=$cate_id&psize=10&in_text=0&in_project=0&in_cate=0") -->
+                <!-- include tpl=block_list_pic item_title=最新发布 data=$news_list.rslist-->
+            </div>
+        </aside>
+    </div>
+</div>
+<!-- include tpl=foot -->

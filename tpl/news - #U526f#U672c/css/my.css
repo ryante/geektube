@@ -1,0 +1,14 @@
+
+.taglist a{padding:0px 7px;display:inline-block;white-space:nowrap;}
+a.size1{font-size:14px;padding:0px 7px;color:#804D40;}
+a.size1:hover{color:#E13728;}
+a.size2{padding:0px 7px;font-size:16px;color:#B9251A;}
+a.size2:hover{color:#E13728;}
+a.size3{padding:0px 7px;font-size:18px;color:#C4876A;}
+a.size3:hover{color:#E13728;}
+a.size4{padding:0px 7px;font-size:20px;color:#B46A47;}
+a.size4:hover{color:#E13728;}
+a.size5{padding:0px 7px;font-size:22px;color:#E13728;}
+a.size5:hover{color:#B46A47;}
+a.size6{padding:0px 7px;font-size:24px;color:#77625E}
+a.size6:hover{color:#E13728;}

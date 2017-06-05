@@ -1,0 +1,278 @@
+<!-- include tpl=head -->
+<div class="tips">
+	当前位置：<a href="{url ctrl=plugin func=exec id=collection exec=manage/}" title="采集器管理">采集器管理</a>
+	&raquo; <!-- if $id -->编辑采集器信息<!-- else -->添加采集器信息<!-- /if -->
+	<div class="clear"></div>
+</div>
+<link rel="stylesheet" type="text/css" href="js/codemirror/codemirror.css" />
+<script type="text/javascript" src="js/codemirror/codemirror.js"></script>
+<script type="text/javascript">
+function to_submit()
+{
+	var name = $("#title").val();
+	if(!name){
+		$.dialog.alert("主题不允许为空");
+		return false;
+	}
+	var linkurl = $("#linkurl").val;
+	if(!linkurl){
+		$.dialog.alert("网址不允许为空");
+		return false;
+	}
+	$("#phpok_submit").attr('disabled',true);
+	return true;
+}
+
+function collect_creat()
+{
+	var thisurl = $("#longurl").val();
+	if(!thisurl){
+		$.dialog.alert("请选设置网址！");
+		return false;
+	}
+	if(thisurl.indexOf("[pageid]")>0){
+		var start_count = parseInt($("#start_count").val());
+		var end_count = parseInt($("#end_count").val());
+		var string_array = new Array();
+		var m = 0;
+		if(start_count <= end_count){
+			for(var i=start_count;i<=end_count;i++){
+				string_array[m] = thisurl.replace("[pageid]",i);
+				m++;
+			}
+		}else{
+			for(var i=start_count;i>=end_count;i--){
+				string_array[m] = thisurl.replace("[pageid]",i);
+				m++;
+			}
+		}
+		var string = string_array.join("\n");
+		$("#listurl").val(string);
+	}else{
+		$("#listurl").val(thisurl);
+	}
+}
+function update_cate(val)
+{
+	if(!val || val == 'undefined'){
+		$("#cate_id_html").html('').hide();
+		return true;
+	}
+	var cateid = "{$rs.cateid}";
+	var url = get_url('plugin','exec','id=collection&exec=catelist&pid='+val);
+	$.phpok.json(url,function(rs){
+		if(rs.status != 'ok'){
+			$("#cate_id_html").html(rs.content).show().css("color",'red');
+			return true;
+		}
+		//没有相应的分类
+		if(!rs.content || rs.content == 'undefined'){
+			$("#cate_id_html").html('').hide();
+			return true;
+		}
+		var lst = rs.content;
+		var html = '<select name="cateid" id="cateid">';
+		html += '<option value="">请选择分类…</option>';
+		for(var i in lst){
+			html += '<option value="'+lst[i].id+'"';
+			if(cateid && lst[i].id == cateid){
+				html += ' selected';
+			}
+			html += '>'+lst[i]._space+' '+lst[i].title+'</option>';
+		}
+		html += '</select>';
+		$("#cate_id_html").html(html).show().css('color','#000');
+	});
+}
+
+$(document).ready(function(){
+	var pid = "{$rs.project_id}";
+	if(pid){
+		update_cate(pid);
+	}
+	$("#form_submit").submit(function(){
+		$(this).ajaxSubmit({
+			'url':"{url ctrl=plugin func=exec id=collection exec=collection_setok tid=$tid/}",
+			'type':'post',
+			'dataType':'json',
+			'success':function(rs){
+				if(rs.status == 'ok'){
+					$.dialog.alert('操作成功',function(){
+						$.phpok.go('{url ctrl=plugin func=exec id=collection exec=manage/}');
+					},'succeed');
+					return false;
+				}
+				$.dialog.alert(rs.content);
+			}
+		});
+		return false;
+	});
+});
+</script>
+
+<form method="post" id="form_submit">
+<div class="table">
+	<div class="title">
+		主题：
+		<span class="note">设定一个主题，方便管理，<span class="red">此项必填</span></span>
+	</div>
+	<div class="content"><input type="text" name="title" id="title" value="{$rs.title}" class="long"></div>
+</div>
+
+<div class="table">
+	<div class="title">网址：<span class="note">采集的网址必须以http://开头，以/结尾 <span class="red">此项必填</span></span></div>
+	<div class="content"><input type="text" name="linkurl" id="linkurl" value="{$rs.linkurl}" class="long" /></div>
+</div>
+
+<div class="table">
+	<div class="title">网站编码：<span class="note">仅支持三种编码，如无法满足要求，建议您使用第三方采集器。GB2312编码的网站可选用GBK</span></div>
+	<div class="content">
+	<select name="url_charset">
+		<option value="utf-8">UTF-8编码</option>
+		<option value="gbk"{if $rs.url_charset == "gbk"} selected{/if}>GBK编码</option>
+		<option value="big5"{if $rs.url_charset == "big5"} selected{/if}>BIG5</option>
+	</select>
+	</div>
+</div>
+
+
+<div class="table">
+	<div class="title">发布目标：<span class="note"><span class="red">此项必填</span></span></div>
+	<div class="content">
+		<table cellspacing="0" cellpadding="0">
+		<tr>
+			<td>
+				<select name="project_id" id="project_id" onchange="update_cate(this.value)">
+					<option value="">请选择发布目标</option>
+					<!-- loop from=$plist key=$key value=$value id=$tmpid -->
+					<option value="{$value.id}"{if $value.id == $rs.project_id} selected{/if}>{$value.title}</option>
+					<!-- /loop -->
+				</select>
+			</td>
+			<td>&nbsp;</td>
+			<td id="cate_id_html"></td>
+		</tr>
+		</table>
+	</div>
+</div>
+
+<div class="table">
+	<div class="title">列表页地址：<span class="note">一行一个列表页地址，须完整带有http://<span class="red">此项必填</span></span></div>
+	<div class="content">
+		<textarea id="listurl" name="listurl" style="width:600px;height:200px;max-width:600px;min-width:600px;">{$rs.listurl}</textarea>
+		<div style="margin-top:10px;">
+			<table cellspacing="0">
+			<tr>
+				<td><input type="text" id="longurl" class="long" /></td>
+				<td>&nbsp;页码开始值：</td>
+				<td><input type="text" id="start_count" value="1" style="width:30px" /></td>
+				<td>&nbsp;结束值：</td>
+				<td><input type="text" id="end_count" value="10" style="width:30px" /></td>
+				<td><input type="button" value="创建" onclick="collect_creat()" class="phpok-btn" /></td>
+				<td class="note">&nbsp;</td>
+			</tr>
+			</table>
+		</div>
+		<div style="margin-top:10px;">页码标识：<span class="red">[pageid]</span>，本系统仅提供简单的网址规则，需要更强大的采集功能，建议使用第三方采集</div>
+	</div>
+</div>
+<style type="text/css">
+.CodeMirror{border:1px solid #ccc;}
+.CodeMirror-scroll{width:400px;height:150px;}
+</style>
+
+<div class="table">
+	<div class="title">网址采集范围：<span class="note">支持 <span class="red">(*)</span>，建议设定</span></div>
+	<div class="content">
+		<table>
+		<tr>
+			<td><textarea name="list_tags_start" id="list_tags_start" style="width:400px;height:150px;">{$rs.list_tags_start}</textarea></td>
+			<td>＜－＞</td>
+			<td><textarea name="list_tags_end" id="list_tags_end" style="width:400px;height:150px;">{$rs.list_tags_end}</textarea></td>
+		</tr>
+		</table>
+	</div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){
+	var delay;
+	var code_editor_list_tags_start = CodeMirror.fromTextArea(document.getElementById("list_tags_start"),{
+		lineNumbers		: true,
+		matchBrackets	: true,
+		lineWrapping	: true,
+		indentWithTabs	: true,
+		indentUnit		: 4,
+		onChange		: function(n){
+			$("#list_tags_start").val(code_editor_list_tags_start.getValue());
+		}
+	});
+	var code_editor_list_tags_end = CodeMirror.fromTextArea(document.getElementById("list_tags_end"),{
+		lineNumbers		: true,
+		matchBrackets	: true,
+		lineWrapping	: true,
+		indentWithTabs	: true,
+		indentUnit		: 4,
+		onChange		: function(n){
+			$("#list_tags_end").val(code_editor_list_tags_end.getValue());
+		}
+	});
+});
+</script>
+
+<div class="table">
+	<div class="title">网址必须包含：<span class="note">设置内容网址必须包含哪些字符，多个字符用“|”分隔，不限设置为空</span></div>
+	<div class="content"><input type="text" id="url_tags" name="url_tags" value="{$rs.url_tags}" class="long" /></div>	
+</div>
+
+<div class="table">
+	<div class="title">压缩传输：<span class="note">&nbsp;一般情况下，都是需要启用的！我们推荐您启用此功能</span></div>
+	<div class="content">
+		<ul class="layout">
+			<li><label><input type="radio" name="is_gzip" value="0"{if !$rs || !$rs.is_gzip} checked{/if} /> 禁用</label></li>
+			<li><label><input type="radio" name="is_gzip" value="1"{if $rs.is_gzip} checked{/if} /> 启用</label></li>
+		</ul>
+	</div>
+</div>
+<script type="text/javascript">
+function update_proxy(val)
+{
+	if(val == 1){
+		$("#porxy_setting").show();
+	}else{
+		$("#porxy_setting").hide();
+	}
+}
+</script>
+<div class="table">
+	<div class="title">使用代理访问：<span class="note">&nbsp;本采集器仅支持HTTP代理，不支持SOCKS5代理，请注意！</span></div>
+	<div class="content">
+		<ul class="layout">
+			<li><label><input type="radio" name="is_proxy" value="0"{if !$rs || !$rs.is_proxy} checked{/if} onclick="update_proxy(0)" /> 禁用</label></li>
+			<li><label><input type="radio" name="is_proxy" value="1"{if $rs.is_proxy} checked{/if} onclick="update_proxy(1)" /> 启用</label></li>
+		</ul>
+	</div>
+</div>
+
+<div{if !$rs || !$rs.is_proxy} class="hide"{/if} id="porxy_setting">
+	<div class="table">
+		<div class="title">代理服务器：<span class="note">填写服务器，格式如：<span class="red">http://192.168.1.100:8080</span>，注意端口号</span></div>
+		<div class="content"><input type="text" id="proxy_service" name="proxy_service" value="{$rs.proxy_service}" class="long" /></div>
+	</div>
+
+	<div class="table">
+		<div class="title">代理账号：<span class="note">如果代理服务器需要登录账号，请在这里设置</span></div>
+		<div class="content"><input type="text" id="proxy_user" name="proxy_user" value="{$rs.proxy_user}" /></div>
+	</div>
+
+	<div class="table">
+		<div class="title">代理密码：<span class="note">同上，如需要密码，请设置，返之留空</span></div>
+		<div class="content"><input type="text" id="proxy_pass" name="proxy_pass" value="{$rs.proxy_pass}" /></div>
+	</div>
+</div>
+<div class="table">
+	<div class="title">&nbsp;</div>
+	<input type="submit" class="submit2" id="phpok_submit" name="article_submit" value=" 提交 ">
+</div>
+
+</form>
+<!-- include tpl=foot -->

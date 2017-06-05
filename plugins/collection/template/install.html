@@ -1,0 +1,41 @@
+<div class="table">
+	<div class="title">
+		菜单所属项目
+		<span class="note"></span>
+	</div>
+	<div class="content">
+		<select id="root_id" name="root_id">
+		<!-- loop from=$top_menu_list key=$key value=$value id=$tmpid -->
+		<option value="{$value.id}"{if $rs.param.root_id == $value.id} selected{/if}>{$value.title}</option>
+		<!-- /loop -->
+		</select>
+	</div>
+</div>
+<div class="table">
+	<div class="title">
+		附件保存：
+		<span class="note">临时数据放在：res/tmp[采集项目ID]/目录下</span>
+	</div>
+	<div class="content">
+		<select id="rescate" name="rescate">
+		<!-- loop from=$res_catelist key=$key value=$value id=$tmpid -->
+		<option value="{$value.id}"{if $rs.param.rescate == $value.id} selected{/if}>{$value.title}（目录：{$value.root}{$value.folder}）</option>
+		<!-- /loop -->
+		</select>
+	</div>
+</div>
+<div class="table">
+	<div class="title">
+		有道翻译KEY-FROM：
+		<span class="note">设置有道翻译的API接口</span>
+	</div>
+	<div class="content"><input type="text" id="keyfrom" name="keyfrom" class="long" value="{$rs.param.keyfrom}" /></div>
+</div>
+<div class="table">
+	<div class="title">
+		有道翻译KEY：
+		<span class="note">设置有道翻译的API接口</span>
+	</div>
+	<div class="content"><input type="text" id="keyid" name="keyid" class="long" value="{$rs.param.keyid}" /></div>
+</div>
+

@@ -1,0 +1,90 @@
+<!-- inc:head -->
+<script type="text/javascript" src="{func add_js module.js}"></script>
+<script type="text/javascript">
+function update_taxis(val,id)
+{
+	$.ajax({
+		'url':get_url('module','field_taxis','taxis='+val+"&id="+id),
+		'dataType':'json',
+		'cache':false,
+		'async':true,
+		'beforeSend': function (XMLHttpRequest){
+			XMLHttpRequest.setRequestHeader("request_type","ajax");
+		},
+		'success':function(rs){
+			if(rs.status){
+				$.phpok.reload();
+			}else{
+				$.dialog.alert(rs.info);
+				return false;
+			}
+		}
+	});
+}
+$(document).ready(function(){
+	$("div[name=taxis]").click(function(){
+		var oldval = $(this).text();
+		var id = $(this).attr('data');
+		$.dialog.prompt('{lang请填写新的排序：}',function(val){
+			if(val != oldval){
+				update_taxis(val,id);
+			}
+		},oldval);
+	});
+});
+</script>
+
+<div class="tips">
+	<div class="action"><a href="javascript:module_field_create('{$id}');void(0);" title="添加字段">添加字段</a></div>
+	您当前的位置：
+	<a href="{url ctrl=module/}">模块管理</a>
+	&raquo; <span class="red">{$rs.title}</span>字段管理器
+</div>
+
+<!-- if $used_list -->
+<div class="list">
+<table width="100%" cellpadding="0" cellspacing="0">
+<tr>
+	<th class="id">ID</th>
+	<th class="lft">&nbsp;字段名</th>
+	<th class="lft">名称</th>
+	<th class="lft">备注</th>
+	<th class="lft">排序</th>
+	<th></th>
+</tr>
+<!-- loop from=$used_list key=$key value=$value id=$tmpid -->
+<tr>
+	<td class="center">{$value.id}</td>
+	<td>{$value.identifier}</td>
+	<td>{$value.title}</td>
+	<td>{$value.note}</td>
+	<td><div class="gray i hand center" title="{lang点击调整排序}" name="taxis" data="{$value.id}">{$value.taxis}</div></td>
+	<td>
+		<div class="button-group">
+			<input type="button" value="{lang编辑}" onclick="module_field_edit('{$value.id}')" class="phpok-btn" />
+			<input type="button" value="{lang删除}" onclick="module_field_del('{$value.id}','{$value.title}')" class="phpok-btn" />
+		</div>
+	</td>
+</tr>
+<!-- /loop -->
+</table>
+</div>
+<!-- /if -->
+<!-- if $fields_list -->
+<div class="tips">常见字段快速添加</div>
+<ul class="layout fields_quick_add">
+	<!-- loop from=$fields_list key=$key value=$value id=$tmpid -->
+	<li>
+		<div class="left">
+			<div class="title">{$value.title}</div>
+			<div class="gray i">{$value.identifier}</div>
+		</div>
+		<div class="right">
+			<input type="button" value="{lang添加}" onclick="module_field_add('{$id}','{$value.id}')" class="phpok-btn" />
+		</div>
+	</li>
+	<!-- /loop -->
+</ul>
+<!-- /if -->
+
+<!-- inc:foot -->

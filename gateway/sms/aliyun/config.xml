@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+	<title>阿里云短信</title>
+	<note>与阿里云市场短信有所区别，此处使用阿里云自带的SDK包</note>
+	<code>
+		<appkey>
+			<title>Access Key</title>
+			<note><![CDATA[请到阿里云提供的https://ak-console.aliyun.com/#/accesskey/申请]]></note>
+			<type>text</type>
+			<required>true</required>
+		</appkey>
+		<appsecret>
+			<title><![CDATA[Access Secret（密钥）]]></title>
+			<note><![CDATA[同上，在申请Key ID后，会同时提供密钥]]></note>
+			<type>text</type>
+			<required>false</required>
+		</appsecret>
+		<server>
+			<title>服务器标识</title>
+			<note><![CDATA[不清楚请留空，此项默认为杭州]]></note>
+			<type>text</type>
+			<required>true</required>
+			<default>cn-hangzhou</default>
+		</server>
+		<signame>
+			<title>签名</title>
+			<note><![CDATA[请填写您在阿里上设置的短信签名]]></note>
+			<type>text</type>
+			<required>true</required>
+		</signame>
+	</code>
+	<manage>
+		<send>
+			<title>发短信</title>
+			<exec>sendsms</exec>
+			<type>page</type>
+		</send>
+		<readme>
+			<title>帮助说明</title>
+			<exec>readme</exec>
+			<type>page</type>
+		</readme>
+	</manage>
+</root>

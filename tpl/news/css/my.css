@@ -1,0 +1,87 @@
+.near-subject ul{ padding-left: 0px;}
+.near-subject ul li { list-style: none !important;}
+.near-subject ul li a { color: #333}
+.near-subject ul li a:hover { color: #3ca5f6}
+.no-subject{ color: #b1b1b1}
+.main-content .article-content {
+	font-size: 16px;
+word-wrap: break-word;
+line-height: 1.8;
+letter-spacing: 0.5px
+}
+
+.main-content .article-content h2 {
+position: relative;
+color: #333;
+padding-left: 15px;
+line-height: 1.2;
+font-size: 20px;
+font-weight: 700;
+border-left: 8px solid #13ac67
+}
+
+.main-content .article-content img {
+display: block;
+max-width: 100%;
+margin: 0 auto;
+height: auto
+}
+
+.main-content .article-content img.js-lazy.blur {
+width: 100%
+}
+
+.main-content .article-content img.loading {
+cursor: wait
+}
+
+.main-content .article-content blockquote {
+color: #666;
+border-left: 4px solid #ddd;
+padding-left: 1.5rem;
+margin: 0
+}
+
+.main-content .article-content iframe {
+width: 100%
+}
+
+.main-content .article-content .gp_media_video {
+position: relative;
+width: 100%;
+height: 0;
+padding-top: 62%
+}
+
+.main-content .article-content .gp_media_video embed, .main-content .article-content .gp_media_video iframe {
+width: 100%;
+height: 100%;
+position: absolute;
+left: 0;
+top: 0
+}
+
+.main-content .article-content p {
+margin: 30px 0
+}
+
+.main-content .article-content b, .main-content .article-content strong {
+color: #444
+}
+
+.main-content .article-content a {
+color: #444;
+text-decoration: none;
+border-bottom: 1px dashed #444
+}
+.main-content .article-content a:hover{
+color: #3ca5f6;
+border-bottom: 1px dashed #3ca5f6
+}
+
+
+.tag_title{ font-weight: 700}
+
+.article-list .item-img{ text-align: center;}
+.topic-cover{ text-align: center !important;}
+.article-list .item-img:hover{ background-color: #fff;}

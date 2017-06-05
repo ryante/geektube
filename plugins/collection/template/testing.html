@@ -1,0 +1,83 @@
+<!-- include tpl=head -->
+<script type="text/javascript">
+function test_link()
+{
+	var url = "{url ctrl=plugin func=exec id=collection exec=collection_url tid=$tid/}"
+	var linkurl = $("#testing_linkurl").val();
+	if(!linkurl){
+		$.dialog.alert("请输入要测试的采集网址");
+		return false;
+	}
+	url += "&listurl="+$.str.encode(linkurl);
+	$.dialog.tips('正在执行中…');
+	$.phpok.json(url,test_link_ajax);
+}
+function test_link_ajax(rs)
+{
+	if(rs && rs.status == 'ok'){
+		var info = rs.content;
+		var array = new Array();
+		for(var i in info){
+			array[i] = info[i].url;
+		}
+		$("#content").val(array.join("\n"));
+	}else{
+		if(rs){
+			$("#content").val(rs.content);
+		}
+	}
+}
+
+
+function test_msg()
+{
+	var url = "{url ctrl=plugin func=exec id=collection exec=collection_content tid=$tid/}"
+	var linkurl = $("#testing_linkurl").val();
+	if(!linkurl){
+		$.dialog.alert("请输入要测试的采集网址");
+		return false;
+	}
+	url += "&msgurl="+$.str.encode(linkurl);
+	$.dialog.tips('正在执行中…');
+	$.phpok.json(url,test_msg_ajax)
+}
+
+function test_msg_ajax(rs)
+{
+	if(rs && rs.status == 'ok'){
+		var info = rs.content;
+		var array = new Array();
+		for(var i in info){
+			array[i] = info[i].title+"（"+info[i].identifier+"）："+info[i].content;
+		}
+		$("#content").val(array.join("\n"));
+	}else{
+		if(rs){
+			$("#content").val(rs.content);
+		}
+	}
+}
+
+</script>
+<style type="text/css">
+.cj_result{font-size:12px;line-height:150%;}
+</style>
+<table width="99%" height="100%">
+<tr>
+	<td>
+		<table>
+		<tr>
+			<td><input type="text" id="testing_linkurl" class="long"></td>
+			<td><input type="button" value="采集网址" class="phpok-btn" onclick="test_link()" /></td>
+			<td><input type="button" value="采集内容" class="phpok-btn" onclick="test_msg()" /></td>
+		</tr>
+		</table>
+	</td>
+</tr>
+<tr>
+	<td><textarea id="content" class="cj_result" style="width:660px;max-width:660px;height:440px;max-height:440px;min-height:440px;min-width:660px;border:1px solid #ccc;resize:none;"></textarea></td>
+</tr>
+</table>
+
+
+<!-- include tpl=foot_open -->

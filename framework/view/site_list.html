@@ -1,0 +1,42 @@
+<!-- include tpl=head -->
+<div class="tips">
+	您当前的位置：
+	<a href="{url ctrl=site/}">多站点维护</a>
+	&raquo; 站点列表（别名用于后台管理，在前台并不调用）
+	<!-- if $session.admin_rs.if_system --><div class="action"><a href="javascript:$.phpok_site.add();void(0);">{lang添加新站点}</a></div><!-- /if -->
+</div>
+<div class="list">
+<table width="100%" cellpadding="0" cellspacing="0">
+<tr>
+	<th class="lft" style="text-indent:12px;">名称</th>
+	<th>目录</th>
+	<th>别名</th>
+	<th>域名</th>
+	<th>&nbsp;</th>
+</tr>
+<!-- loop from=$rslist key=$key value=$value id=$tmpid -->
+<tr>
+	<td style="text-indent:12px;height:22px;">
+		{$value.title}
+		<!-- if $value.is_default -->
+		<span class='darkblue i'>默认站点</span>
+		<!-- /if -->
+	</td>
+	<td class="center">{$value.dir}</td>
+	<td class="center">
+		<input type="button" value="{$value.alias ? $value.alias : '无别名，点击设置'}" onclick="$.phpok_site.alias('{$value.id}','{$value.alias}')" class="phpok-btn" />
+	</td>
+	<td class="center">{$value.dlist_string}</td>
+	<td>
+		<!-- if !$value.is_default && $popedom.default -->
+		<input type="button" value="{lang设为默认站点}" onclick="$.phpok_site.set_default('{$value.id}','{$value.title}')" class="phpok-btn" />
+		<!-- /if -->
+		<!-- if $popedom.delete && !$value.is_default -->
+		<input type="button" value="{lang删除}" onclick="$.phpok_site.del('{$value.id}','{$value.title}')" class="phpok-btn" />
+		<!-- /if -->
+	</td>
+</tr>
+<!-- /loop -->
+</table>
+</div>
+<!-- inc:foot -->

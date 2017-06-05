@@ -1,0 +1,54 @@
+﻿<!-- include tpl=head -->
+<div id="wrap">
+    <div class="main container">
+        <div class="content">
+            <div class="sec-panel main-list">
+                <div class="sec-panel-head">
+                    <h1>{if $cate_rs.title}{$cate_rs.title}{else}{$page_rs.title}{/if}</h1>
+                </div>
+                <ul class="article-list">
+                <!-- loop from=$rslist key=$key value=$value id=mindex-->
+                     <li class="item">
+                        <div class="item-img">
+                            <a href="{$value.url}" title="{$value.title}" >
+                                <img class="j-lazy" src="images/loading.gif" data-original="{if $value.thumb.gd.big_thumb}{$value.thumb.gd.big_thumb}{else}{$value.thumb.filename}{/if}" >
+                            </a>
+                            <a class="item-category" href="{$value.cate.url}">{$value.cate.title}</a>
+                        </div>
+                        <div class="item-content">
+                            <h2 class="item-title">
+                            <a href="{$value.url}" title="{$value.title}" >{$value.title}</a>
+                            </h2>
+                            <div class="item-excerpt">
+                                <p>
+                                    {$value.note}
+                                </p>
+                            </div>
+                            <div class="item-meta">
+                                <span class="item-meta-li date">{=date('Y-m-d H:i',$value.dateline)}</span>
+                                <span class="item-meta-li views" title="阅读数"><i class="fa fa-eye"></i> <span class="data">{$value.hits}</span></span>
+                            </div>
+                        </div>
+                    </li>
+                    <!-- /loop -->
+                    <li class="load-more-wrap">
+                        <a class="load-more" href="javascript:;" {if $cate_rs}data-cate="{$cate_rs.identifier}"{/if}>点击查看更多</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+        <aside class="sidebar">
+            <div id="image-ad-3" class="widget widget_views">
+                <!-- include tpl=block_tag -->
+            </div>
+            <div id="post-thumb-2" class="widget widget_post_thumb">
+                <!-- php:$pid = $page_rs.id-->
+                <!-- php:$cate_identifier = $cate_rs.identifier-->
+                <!-- php:$news_list = phpok('_arclist', "pid=$pid&cate=$cate_identifier&psize=10&in_text=0&in_project=0&in_cate=0") -->
+                <!-- include tpl=block_list_pic item_title=最新发布 data=$news_list.rslist-->
+            </div>
+        </aside>
+    </div>
+</div>
+   <!-- include tpl=foot -->

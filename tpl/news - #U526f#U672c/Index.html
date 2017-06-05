@@ -1,0 +1,727 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+    <title>JustNews - 又一个WPCOM站点</title>
+    <link rel='stylesheet' id='stylesheet-css' href='css/style.css' type='text/css' media='all'/>
+    <link rel='stylesheet' id='um_minified-css' href='css/um.min.css' type='text/css' media='all'/>
+    <link rel='stylesheet' id='um_minified-css' href='css/my.css' type='text/css' media='all'/>
+    <script type='text/javascript' src='js/jquery.min.js'></script>
+    <link rel="shortcut icon" href="//www.wpcom.cn/favicon.ico">
+    <script type="text/javascript">
+        var wpcom_ajaxurl = 'http://demo.wpcom.cn/justnews/wp-admin/admin-ajax.php';
+    </script>
+    <!--[if lte IE 8]>
+    <script src="js/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body class="home blog">
+<header class="header">
+    <div class="container clearfix">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar icon-bar-1"></span>
+                <span class="icon-bar icon-bar-2"></span>
+                <span class="icon-bar icon-bar-3"></span>
+            </button>
+            <a class="logo" href="http://demo.wpcom.cn/justnews"><img src="picture/logo.png" alt="JustNews"></a>
+        </div>
+        <div class="collapse navbar-collapse">
+            <nav class="navbar-left primary-menu">
+                <ul id="menu-justnews-menu" class="nav navbar-nav">
+                    <li class="menu-item active"><a href="/justnews">首页</a></li>
+                    <li class="menu-item dropdown"><a href="#" class="dropdown-toggle">文章分类</a>
+                        <ul role="menu" class=" dropdown-menu">
+                            <li class="menu-item"><a
+                                    href="http://demo.wpcom.cn/justnews/category/%e5%88%9b%e4%b8%9a%e5%88%86%e4%ba%ab">创业分享</a>
+                            </li>
+                            <li class="menu-item"><a
+                                    href="http://demo.wpcom.cn/justnews/category/%e7%94%a8%e6%88%b7%e4%bd%93%e9%aa%8c">用户体验</a>
+                            </li>
+                            <li class="menu-item"><a
+                                    href="http://demo.wpcom.cn/justnews/category/%e4%ba%a7%e5%93%81%e8%ae%be%e8%ae%a1">产品设计</a>
+                            </li>
+                            <li class="menu-item"><a
+                                    href="http://demo.wpcom.cn/justnews/category/%e8%a1%8c%e4%b8%9a%e5%8a%a8%e6%80%81">行业动态</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="menu-item"><a href="http://demo.wpcom.cn/justnews/special">专题列表</a></li>
+                    <li class="menu-item"><a href="http://demo.wpcom.cn/justnews/members">用户列表</a></li>
+                </ul>
+            </nav>
+            <div class="navbar-action pull-right">
+                <form class="navbar-search" action="http://demo.wpcom.cn/justnews" method="get" role="search">
+                    <input type="text" name="s" class="navbar-search-input" autocomplete="off" placeholder="输入关键词搜索..."
+                           value="">
+                    <a class="navbar-search-icon j-navbar-search" href="javascript:;"></a>
+                </form>
+            </div>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container -->
+</header>
+<div id="wrap">
+    <div class="main container">
+        <div class="content">
+            <div class="slider-wrap clearfix">
+                <div class="main-slider flexslider pull-left">
+
+                    <div class="flex-viewport" style="overflow: hidden; position: relative;">
+                        <ul class="slides" style="width: 1000%; margin-left: -1200.6px;">
+                            <li class="slide-item clone" aria-hidden="true"
+                                style="width: 860px; float: left; display: block;">
+                                <a href="http://demo.wpcom.cn/justnews/" target="_blank">
+                                    <img src="http://demo.wpcom.cn/justnews/wp-content/uploads/sites/8/2017/04/s3.jpg"
+                                         alt="这是幻灯滑块的标题3" draggable="false">
+                                </a>
+                                <h3 class="slide-title">
+                                    <a href="http://demo.wpcom.cn/justnews/" target="_blank">
+                                        这是幻灯滑块的标题3 </a>
+                                </h3>
+                            </li>
+                            <li class="slide-item" style="width: 860px; float: left; display: block;">
+                                <a href="http://demo.wpcom.cn/justnews/" target="_blank">
+                                    <img src="http://demo.wpcom.cn/justnews/wp-content/uploads/sites/8/2017/04/s2.jpg"
+                                         alt="这是幻灯滑块的标题1" draggable="false">
+                                </a>
+                                <h3 class="slide-title">
+                                    <a href="http://demo.wpcom.cn/justnews/" target="_blank">
+                                        这是幻灯滑块的标题1 </a>
+                                </h3>
+                            </li>
+                            <li class="slide-item flex-active-slide" style="width: 860px; float: left; display: block;">
+                                <a href="http://demo.wpcom.cn/justnews/" target="_blank">
+                                    <img src="http://demo.wpcom.cn/justnews/wp-content/uploads/sites/8/2017/04/s1.jpg"
+                                         alt="这是幻灯滑块的标题2" draggable="false">
+                                </a>
+                                <h3 class="slide-title">
+                                    <a href="http://demo.wpcom.cn/justnews/" target="_blank">
+                                        这是幻灯滑块的标题2 </a>
+                                </h3>
+                            </li>
+                            <li class="slide-item" style="width: 860px; float: left; display: block;">
+                                <a href="http://demo.wpcom.cn/justnews/" target="_blank">
+                                    <img src="http://demo.wpcom.cn/justnews/wp-content/uploads/sites/8/2017/04/s3.jpg"
+                                         alt="这是幻灯滑块的标题3" draggable="false">
+                                </a>
+                                <h3 class="slide-title">
+                                    <a href="http://demo.wpcom.cn/justnews/" target="_blank">
+                                        这是幻灯滑块的标题3 </a>
+                                </h3>
+                            </li>
+                            <li class="slide-item clone" aria-hidden="true"
+                                style="width: 860px; float: left; display: block;">
+                                <a href="http://demo.wpcom.cn/justnews/" target="_blank">
+                                    <img src="http://demo.wpcom.cn/justnews/wp-content/uploads/sites/8/2017/04/s2.jpg"
+                                         alt="这是幻灯滑块的标题1" draggable="false">
+                                </a>
+                                <h3 class="slide-title">
+                                    <a href="http://demo.wpcom.cn/justnews/" target="_blank">
+                                        这是幻灯滑块的标题1 </a>
+                                </h3>
+                            </li>
+                        </ul>
+                    </div>
+                    <ol class="flex-control-nav flex-control-paging">
+                        <li><a class="">1</a></li>
+                        <li><a class="flex-active">2</a></li>
+                        <li><a class="">3</a></li>
+                    </ol>
+                    <ul class="flex-direction-nav">
+                        <li class="flex-nav-prev"><a class="flex-prev" href="#">Previous</a></li>
+                        <li class="flex-nav-next"><a class="flex-next" href="#">Next</a></li>
+                    </ul>
+                </div>
+                <ul class="feature-post pull-right">
+                    <li>
+                        <a href="http://demo.wpcom.cn/justnews/author/Lomu" target="_blank">
+                            <img src="http://demo.wpcom.cn/justnews/wp-content/uploads/sites/8/2017/04/1ft6-1.jpg"
+                                 alt="前端用户中心">
+                        </a>
+                        <span>前端用户中心</span>
+                    </li>
+                    <li>
+                        <a href="http://demo.wpcom.cn/justnews/special" target="_blank">
+                            <img src="http://demo.wpcom.cn/justnews/wp-content/uploads/sites/8/2017/04/ux-1.png"
+                                 alt="专题列表">
+                        </a>
+                        <span>专题列表</span>
+                    </li>
+                    <li>
+                        <a href="http://demo.wpcom.cn/justnews/67.html" target="_blank">
+                            <img src="http://demo.wpcom.cn/justnews/wp-content/uploads/sites/8/2017/04/149-1.png"
+                                 alt="8招教你快速打造作品的『全栈设计感』">
+                        </a>
+                        <span>8招教你快速打造作品的『全栈设计感』</span>
+                    </li>
+                </ul>
+            </div>
+
+
+            <div class="sec-panel main-list">
+                <div class="sec-panel-head">
+                    <ul class="list tabs" id="j-newslist">
+                        <li class="tab active"><a data-id="0" href="javascript:;">最新文章</a></li>
+                        <li class="tab"><a data-id="5" href="javascript:;">产品设计</a></li>
+                        <li class="tab"><a data-id="1" href="javascript:;">创业分享</a></li>
+                        <li class="tab"><a data-id="6" href="javascript:;">用户体验</a></li>
+                        <li class="tab"><a data-id="7" href="javascript:;">行业动态</a></li>
+                    </ul>
+                </div>
+                <ul class="article-list tab-list active">
+                    <li class="item">
+                        <div class="item-img">
+                            <a href="http://demo.wpcom.cn/justnews/312.html" title="下一个万亿风口？阿里，京东，苏宁开始竞逐这个市场！"
+                               target="_blank">
+                                <img class="j-lazy"
+                                     src="http://demo.wpcom.cn/justnews/wp-content/uploads/sites/8/2017/05/1f8e000477fab7494320-480x300.jpeg"
+                                     data-original="http://demo.wpcom.cn/justnews/wp-content/uploads/sites/8/2017/05/1f8e000477fab7494320-480x300.jpeg"
+                                     width="480" height="300" alt="下一个万亿风口？阿里，京东，苏宁开始竞逐这个市场！" style="display: inline;">
+                            </a>
+                            <a class="item-category"
+                               href="http://demo.wpcom.cn/justnews/category/%e5%88%9b%e4%b8%9a%e5%88%86%e4%ba%ab"
+                               target="_blank">创业分享</a>
+                        </div>
+                        <div class="item-content">
+                            <h2 class="item-title"><a href="http://demo.wpcom.cn/justnews/312.html"
+                                                      title="下一个万亿风口？阿里，京东，苏宁开始竞逐这个市场！" target="_blank">下一个万亿风口？阿里，京东，苏宁开始竞逐这个市场！</a>
+                            </h2>
+                            <div class="item-excerpt">
+                                <p>
+                                    5月10日，京东颁布以JD-Business为定名的京东企业级市场计谋。据京东大客户营业仔细人宋春正先容，该计谋以采购为主场景，环绕企业采购处事机关妙技、商品、如约交付、增值处事四…</p>
+                            </div>
+                            <div class="item-meta">
+                                <div class="item-meta-li author">
+                                    <a data-user="12" target="_blank" href="http://demo.wpcom.cn/justnews/user/12/"
+                                       class="avatar">
+                                        <img src="http://demo.wpcom.cn/justnews/wp-content/uploads/ultimatemember/12/profile_photo-80.jpg?1495534755"
+                                             class="func-um_user gravatar avatar avatar-60 um-avatar um-avatar-uploaded"
+                                             width="60" height="60" alt="呵呵哒"> </a>
+                                    <a class="nickname" href="http://demo.wpcom.cn/justnews/user/12/" target="_blank">呵呵哒</a>
+                                </div>
+                                <span class="item-meta-li date">6天前</span>
+                                <span class="item-meta-li views" title="阅读数"><i class="fa fa-eye"></i> <span
+                                        class="data">277</span></span>
+                                <span class="item-meta-li likes" title="点赞数"><i class="fa fa-thumbs-up"></i> <span
+                                        class="data">18</span></span>
+                                <a class="item-meta-li comments" href="http://demo.wpcom.cn/justnews/312.html#comments"
+                                   target="_blank" title="评论数"><i class="fa fa-comment"></i> <span class="data">8</span></a>
+                                <span class="item-meta-li hearts" title="喜欢数"><i class="fa fa-heart"></i> <span
+                                        class="data">2</span></span>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="item">
+                        <div class="item-img">
+                            <a href="http://demo.wpcom.cn/justnews/302.html" title="经验总结｜品牌视觉改版要如何开始做？" target="_blank">
+                                <img class="j-lazy"
+                                     src="http://demo.wpcom.cn/justnews/wp-content/uploads/sites/8/2017/04/SYQYHatv22pexglVEEY6-480x300.jpg"
+                                     data-original="http://demo.wpcom.cn/justnews/wp-content/uploads/sites/8/2017/04/SYQYHatv22pexglVEEY6-480x300.jpg"
+                                     width="480" height="300" alt="经验总结｜品牌视觉改版要如何开始做？" style="display: inline;"> </a>
+                            <a class="item-category"
+                               href="http://demo.wpcom.cn/justnews/category/%e7%94%a8%e6%88%b7%e4%bd%93%e9%aa%8c"
+                               target="_blank">用户体验</a>
+                        </div>
+                        <div class="item-content">
+                            <h2 class="item-title"><a href="http://demo.wpcom.cn/justnews/302.html"
+                                                      title="经验总结｜品牌视觉改版要如何开始做？" target="_blank">经验总结｜品牌视觉改版要如何开始做？</a>
+                            </h2>
+                            <div class="item-excerpt">
+                                <p>一个成功的视觉改版是靠30%的探索流程+70%设计师水平。</p>
+                            </div>
+                            <div class="item-meta">
+                                <div class="item-meta-li author">
+                                    <a data-user="4" target="_blank" href="http://demo.wpcom.cn/justnews/user/4/"
+                                       class="avatar">
+                                        <img src="http://demo.wpcom.cn/justnews/wp-content/uploads/ultimatemember/4/profile_photo-80.png?1495534755"
+                                             class="func-um_user gravatar avatar avatar-60 um-avatar um-avatar-uploaded"
+                                             width="60" height="60" alt="爱主题"> </a>
+                                    <a class="nickname" href="http://demo.wpcom.cn/justnews/user/4/"
+                                       target="_blank">爱主题</a>
+                                </div>
+                                <span class="item-meta-li date">2017年4月25日</span>
+                                <span class="item-meta-li views" title="阅读数"><i class="fa fa-eye"></i> <span
+                                        class="data">375</span></span>
+                                <span class="item-meta-li likes" title="点赞数"><i class="fa fa-thumbs-up"></i> <span
+                                        class="data">14</span></span>
+                                <a class="item-meta-li comments" href="http://demo.wpcom.cn/justnews/302.html#comments"
+                                   target="_blank" title="评论数"><i class="fa fa-comment"></i> <span
+                                        class="data">11</span></a>
+                                <span class="item-meta-li hearts" title="喜欢数"><i class="fa fa-heart"></i> <span
+                                        class="data">0</span></span>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="item">
+                        <div class="item-img">
+                            <a href="http://demo.wpcom.cn/justnews/296.html" title="总结了一套完整的设计分析思路" target="_blank">
+                                <img class="j-lazy"
+                                     src="http://demo.wpcom.cn/justnews/wp-content/uploads/sites/8/2017/04/aMhuZWedHM10RoHhT61X-480x300.png"
+                                     data-original="http://demo.wpcom.cn/justnews/wp-content/uploads/sites/8/2017/04/aMhuZWedHM10RoHhT61X-480x300.png"
+                                     width="480" height="300" alt="总结了一套完整的设计分析思路" style="display: inline;"> </a>
+                            <a class="item-category"
+                               href="http://demo.wpcom.cn/justnews/category/%e7%94%a8%e6%88%b7%e4%bd%93%e9%aa%8c"
+                               target="_blank">用户体验</a>
+                        </div>
+                        <div class="item-content">
+                            <h2 class="item-title"><a href="http://demo.wpcom.cn/justnews/296.html"
+                                                      title="总结了一套完整的设计分析思路" target="_blank">总结了一套完整的设计分析思路</a></h2>
+                            <div class="item-excerpt">
+                                <p>本文主要是根据个人在各个大大小小的项目中总结而来的一套做设计分析的参考思路，应用于常规的项目场景基本是够用了。</p>
+                            </div>
+                            <div class="item-meta">
+                                <div class="item-meta-li author">
+                                    <a data-user="4" target="_blank" href="http://demo.wpcom.cn/justnews/user/4/"
+                                       class="avatar">
+                                        <img src="http://demo.wpcom.cn/justnews/wp-content/uploads/ultimatemember/4/profile_photo-80.png?1495534755"
+                                             class="func-um_user gravatar avatar avatar-60 um-avatar um-avatar-uploaded"
+                                             width="60" height="60" alt="爱主题"> </a>
+                                    <a class="nickname" href="http://demo.wpcom.cn/justnews/user/4/"
+                                       target="_blank">爱主题</a>
+                                </div>
+                                <span class="item-meta-li date">2017年4月25日</span>
+                                <span class="item-meta-li views" title="阅读数"><i class="fa fa-eye"></i> <span
+                                        class="data">126</span></span>
+                                <span class="item-meta-li likes" title="点赞数"><i class="fa fa-thumbs-up"></i> <span
+                                        class="data">7</span></span>
+                                <a class="item-meta-li comments" href="http://demo.wpcom.cn/justnews/296.html#comments"
+                                   target="_blank" title="评论数"><i class="fa fa-comment"></i> <span class="data">1</span></a>
+                                <span class="item-meta-li hearts" title="喜欢数"><i class="fa fa-heart"></i> <span
+                                        class="data">2</span></span>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="item">
+                        <div class="item-img">
+                            <a href="http://demo.wpcom.cn/justnews/267.html" title="“遇见”产品分析报告：遇见陌生人，牵手不可能"
+                               target="_blank">
+                                <img class="j-lazy"
+                                     src="http://demo.wpcom.cn/justnews/wp-content/uploads/sites/8/2017/04/fwNthGLufSMk5LhrXsE8-480x300.png"
+                                     data-original="http://demo.wpcom.cn/justnews/wp-content/uploads/sites/8/2017/04/fwNthGLufSMk5LhrXsE8-480x300.png"
+                                     width="480" height="300" alt="“遇见”产品分析报告：遇见陌生人，牵手不可能" style="display: inline;">
+                            </a>
+                            <a class="item-category"
+                               href="http://demo.wpcom.cn/justnews/category/%e4%ba%a7%e5%93%81%e8%ae%be%e8%ae%a1"
+                               target="_blank">产品设计</a>
+                        </div>
+                        <div class="item-content">
+                            <h2 class="item-title"><a href="http://demo.wpcom.cn/justnews/267.html"
+                                                      title="“遇见”产品分析报告：遇见陌生人，牵手不可能" target="_blank">“遇见”产品分析报告：遇见陌生人，牵手不可能</a>
+                            </h2>
+                            <div class="item-excerpt">
+                                <p>社交、陌生，本来不搭边的两个词汇，在互联网的连接下变得可能，变得亲密，擦出火花，甚至磨练出爱情，这是多么美妙的事情。</p>
+                            </div>
+                            <div class="item-meta">
+                                <div class="item-meta-li author">
+                                    <a data-user="3" target="_blank" href="http://demo.wpcom.cn/justnews/user/3/"
+                                       class="avatar">
+                                        <img src="http://demo.wpcom.cn/justnews/wp-content/uploads/ultimatemember/3/profile_photo-80.png?1495534755"
+                                             class="func-um_user gravatar avatar avatar-60 um-avatar um-avatar-uploaded"
+                                             width="60" height="60" alt="WPCOM"> </a>
+                                    <a class="nickname" href="http://demo.wpcom.cn/justnews/user/3/" target="_blank">WPCOM</a>
+                                </div>
+                                <span class="item-meta-li date">2017年4月25日</span>
+                                <span class="item-meta-li views" title="阅读数"><i class="fa fa-eye"></i> <span
+                                        class="data">138</span></span>
+                                <span class="item-meta-li likes" title="点赞数"><i class="fa fa-thumbs-up"></i> <span
+                                        class="data">3</span></span>
+                                <a class="item-meta-li comments" href="http://demo.wpcom.cn/justnews/267.html#comments"
+                                   target="_blank" title="评论数"><i class="fa fa-comment"></i> <span class="data">1</span></a>
+                                <span class="item-meta-li hearts" title="喜欢数"><i class="fa fa-heart"></i> <span
+                                        class="data">1</span></span>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="item">
+                        <div class="item-img">
+                            <a href="http://demo.wpcom.cn/justnews/291.html" title="未来交互设计师的5种转型方式" target="_blank">
+                                <img class="j-lazy"
+                                     src="http://demo.wpcom.cn/justnews/wp-content/uploads/sites/8/2017/04/1129133-480x300.jpg"
+                                     data-original="http://demo.wpcom.cn/justnews/wp-content/uploads/sites/8/2017/04/1129133-480x300.jpg"
+                                     width="480" height="300" alt="未来交互设计师的5种转型方式" style="display: inline;"> </a>
+                            <a class="item-category"
+                               href="http://demo.wpcom.cn/justnews/category/%e5%88%9b%e4%b8%9a%e5%88%86%e4%ba%ab"
+                               target="_blank">创业分享</a>
+                        </div>
+                        <div class="item-content">
+                            <h2 class="item-title"><a href="http://demo.wpcom.cn/justnews/291.html"
+                                                      title="未来交互设计师的5种转型方式" target="_blank">未来交互设计师的5种转型方式</a></h2>
+                            <div class="item-excerpt">
+                                <p>每个设计师在工作的不同阶段或多或少都会有一些迷茫： 如何提升设计的专业度？ 如何提高设计师在公司里的话语权？ 是否需要转型？如何转型？
+                                    甚至怀疑自已不适合做设计等其它困惑和问题，下…</p>
+                            </div>
+                            <div class="item-meta">
+                                <div class="item-meta-li author">
+                                    <a data-user="4" target="_blank" href="http://demo.wpcom.cn/justnews/user/4/"
+                                       class="avatar">
+                                        <img src="http://demo.wpcom.cn/justnews/wp-content/uploads/ultimatemember/4/profile_photo-80.png?1495534755"
+                                             class="func-um_user gravatar avatar avatar-60 um-avatar um-avatar-uploaded"
+                                             width="60" height="60" alt="爱主题"> </a>
+                                    <a class="nickname" href="http://demo.wpcom.cn/justnews/user/4/"
+                                       target="_blank">爱主题</a>
+                                </div>
+                                <span class="item-meta-li date">2017年4月25日</span>
+                                <span class="item-meta-li views" title="阅读数"><i class="fa fa-eye"></i> <span
+                                        class="data">120</span></span>
+                                <span class="item-meta-li likes" title="点赞数"><i class="fa fa-thumbs-up"></i> <span
+                                        class="data">4</span></span>
+                                <a class="item-meta-li comments" href="http://demo.wpcom.cn/justnews/291.html#comments"
+                                   target="_blank" title="评论数"><i class="fa fa-comment"></i> <span class="data">2</span></a>
+                                <span class="item-meta-li hearts" title="喜欢数"><i class="fa fa-heart"></i> <span
+                                        class="data">2</span></span>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="item">
+                        <div class="item-img">
+                            <a href="http://demo.wpcom.cn/justnews/286.html" title="UI设计中的“黑与白”" target="_blank">
+                                <img class="j-lazy"
+                                     src="http://demo.wpcom.cn/justnews/wp-content/uploads/sites/8/2017/04/1136682-480x300.png"
+                                     data-original="http://demo.wpcom.cn/justnews/wp-content/uploads/sites/8/2017/04/1136682-480x300.png"
+                                     width="480" height="300" alt="UI设计中的“黑与白”" style="display: inline;"> </a>
+                            <a class="item-category"
+                               href="http://demo.wpcom.cn/justnews/category/%e7%94%a8%e6%88%b7%e4%bd%93%e9%aa%8c"
+                               target="_blank">用户体验</a>
+                        </div>
+                        <div class="item-content">
+                            <h2 class="item-title"><a href="http://demo.wpcom.cn/justnews/286.html" title="UI设计中的“黑与白”"
+                                                      target="_blank">UI设计中的“黑与白”</a></h2>
+                            <div class="item-excerpt">
+                                <p>
+                                    我们都知道在UI设计中配色占据着极其重要的地位，良好的配色会提升产品的用户体验度，更会吸引更多潜在用户的目光。当然一款产品配色体系的建立是一个极其繁琐的过程，碍于篇幅我无法展开来说…</p>
+                            </div>
+                            <div class="item-meta">
+                                <div class="item-meta-li author">
+                                    <a data-user="4" target="_blank" href="http://demo.wpcom.cn/justnews/user/4/"
+                                       class="avatar">
+                                        <img src="http://demo.wpcom.cn/justnews/wp-content/uploads/ultimatemember/4/profile_photo-80.png?1495534755"
+                                             class="func-um_user gravatar avatar avatar-60 um-avatar um-avatar-uploaded"
+                                             width="60" height="60" alt="爱主题"> </a>
+                                    <a class="nickname" href="http://demo.wpcom.cn/justnews/user/4/"
+                                       target="_blank">爱主题</a>
+                                </div>
+                                <span class="item-meta-li date">2017年4月25日</span>
+                                <span class="item-meta-li views" title="阅读数"><i class="fa fa-eye"></i> <span
+                                        class="data">57</span></span>
+                                <span class="item-meta-li likes" title="点赞数"><i class="fa fa-thumbs-up"></i> <span
+                                        class="data">3</span></span>
+                                <a class="item-meta-li comments" href="http://demo.wpcom.cn/justnews/286.html#comments"
+                                   target="_blank" title="评论数"><i class="fa fa-comment"></i> <span class="data">1</span></a>
+                                <span class="item-meta-li hearts" title="喜欢数"><i class="fa fa-heart"></i> <span
+                                        class="data">2</span></span>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="item">
+                        <div class="item-img">
+                            <a href="http://demo.wpcom.cn/justnews/223.html" title="第一次负责从0到1的产品时要注意哪几点？"
+                               target="_blank">
+                                <img class="j-lazy"
+                                     src="http://demo.wpcom.cn/justnews/wp-content/uploads/sites/8/2017/04/G2pCEkpX1rKjplsqrVuo-480x300.png"
+                                     data-original="http://demo.wpcom.cn/justnews/wp-content/uploads/sites/8/2017/04/G2pCEkpX1rKjplsqrVuo-480x300.png"
+                                     width="480" height="300" alt="第一次负责从0到1的产品时要注意哪几点？" style="display: inline;"> </a>
+                            <a class="item-category"
+                               href="http://demo.wpcom.cn/justnews/category/%e4%ba%a7%e5%93%81%e8%ae%be%e8%ae%a1"
+                               target="_blank">产品设计</a>
+                        </div>
+                        <div class="item-content">
+                            <h2 class="item-title"><a href="http://demo.wpcom.cn/justnews/223.html"
+                                                      title="第一次负责从0到1的产品时要注意哪几点？"
+                                                      target="_blank">第一次负责从0到1的产品时要注意哪几点？</a></h2>
+                            <div class="item-excerpt">
+                                <p>第一次负责从0到1的产品肯定是万分的紧张、激动，在这时千万不可大意，我根据我的经验写了些需要注意的地方。</p>
+                            </div>
+                            <div class="item-meta">
+                                <div class="item-meta-li author">
+                                    <a data-user="1" target="_blank" href="http://demo.wpcom.cn/justnews/user/1/"
+                                       class="avatar">
+                                        <img src="http://demo.wpcom.cn/justnews/wp-content/uploads/ultimatemember/1/profile_photo-80.jpeg?1495534755"
+                                             class="func-um_user gravatar avatar avatar-60 um-avatar um-avatar-uploaded"
+                                             width="60" height="60" alt="Lomu"> </a>
+                                    <a class="nickname" href="http://demo.wpcom.cn/justnews/user/1/" target="_blank">Lomu</a>
+                                </div>
+                                <span class="item-meta-li date">2017年4月25日</span>
+                                <span class="item-meta-li views" title="阅读数"><i class="fa fa-eye"></i> <span
+                                        class="data">117</span></span>
+                                <span class="item-meta-li likes" title="点赞数"><i class="fa fa-thumbs-up"></i> <span
+                                        class="data">5</span></span>
+                                <a class="item-meta-li comments" href="http://demo.wpcom.cn/justnews/223.html#comments"
+                                   target="_blank" title="评论数"><i class="fa fa-comment"></i> <span class="data">0</span></a>
+                                <span class="item-meta-li hearts" title="喜欢数"><i class="fa fa-heart"></i> <span
+                                        class="data">0</span></span>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="item">
+                        <div class="item-img">
+                            <a href="http://demo.wpcom.cn/justnews/282.html" title="设计“即时+持久”激励，让用户对产品上瘾"
+                               target="_blank">
+                                <img class="j-lazy"
+                                     src="http://demo.wpcom.cn/justnews/wp-content/uploads/sites/8/2017/04/hq7Qe6KkRIgDFTzw7l5I-480x300.jpg"
+                                     data-original="http://demo.wpcom.cn/justnews/wp-content/uploads/sites/8/2017/04/hq7Qe6KkRIgDFTzw7l5I-480x300.jpg"
+                                     width="480" height="300" alt="设计“即时+持久”激励，让用户对产品上瘾" style="display: inline;"> </a>
+                            <a class="item-category"
+                               href="http://demo.wpcom.cn/justnews/category/%e4%ba%a7%e5%93%81%e8%ae%be%e8%ae%a1"
+                               target="_blank">产品设计</a>
+                        </div>
+                        <div class="item-content">
+                            <h2 class="item-title"><a href="http://demo.wpcom.cn/justnews/282.html"
+                                                      title="设计“即时+持久”激励，让用户对产品上瘾"
+                                                      target="_blank">设计“即时+持久”激励，让用户对产品上瘾</a></h2>
+                            <div class="item-excerpt">
+                                <p>不管是线上的产品，还是商品，或者是线下的营销，让用户“上瘾”，是一个结合用户隐性动机的技术活，而不是盲目捆绑用户到产品上。</p>
+                            </div>
+                            <div class="item-meta">
+                                <div class="item-meta-li author">
+                                    <a data-user="3" target="_blank" href="http://demo.wpcom.cn/justnews/user/3/"
+                                       class="avatar">
+                                        <img src="http://demo.wpcom.cn/justnews/wp-content/uploads/ultimatemember/3/profile_photo-80.png?1495534755"
+                                             class="func-um_user gravatar avatar avatar-60 um-avatar um-avatar-uploaded"
+                                             width="60" height="60" alt="WPCOM"> </a>
+                                    <a class="nickname" href="http://demo.wpcom.cn/justnews/user/3/" target="_blank">WPCOM</a>
+                                </div>
+                                <span class="item-meta-li date">2017年4月25日</span>
+                                <span class="item-meta-li views" title="阅读数"><i class="fa fa-eye"></i> <span
+                                        class="data">64</span></span>
+                                <span class="item-meta-li likes" title="点赞数"><i class="fa fa-thumbs-up"></i> <span
+                                        class="data">5</span></span>
+                                <a class="item-meta-li comments" href="http://demo.wpcom.cn/justnews/282.html#comments"
+                                   target="_blank" title="评论数"><i class="fa fa-comment"></i> <span class="data">0</span></a>
+                                <span class="item-meta-li hearts" title="喜欢数"><i class="fa fa-heart"></i> <span
+                                        class="data">1</span></span>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="item">
+                        <div class="item-img">
+                            <a href="http://demo.wpcom.cn/justnews/279.html" title="QQ运营女王刘凌：小白到大神，谈运营人成长的三个阶段"
+                               target="_blank">
+                                <img class="j-lazy"
+                                     src="http://demo.wpcom.cn/justnews/wp-content/uploads/sites/8/2017/04/TLkLKVE1lAFPTnOPAoiw-480x300.jpg"
+                                     data-original="http://demo.wpcom.cn/justnews/wp-content/uploads/sites/8/2017/04/TLkLKVE1lAFPTnOPAoiw-480x300.jpg"
+                                     width="480" height="300" alt="QQ运营女王刘凌：小白到大神，谈运营人成长的三个阶段" style="display: inline;">
+                            </a>
+                            <a class="item-category"
+                               href="http://demo.wpcom.cn/justnews/category/%e4%ba%a7%e5%93%81%e8%ae%be%e8%ae%a1"
+                               target="_blank">产品设计</a>
+                        </div>
+                        <div class="item-content">
+                            <h2 class="item-title"><a href="http://demo.wpcom.cn/justnews/279.html"
+                                                      title="QQ运营女王刘凌：小白到大神，谈运营人成长的三个阶段" target="_blank">QQ运营女王刘凌：小白到大神，谈运营人成长的三个阶段</a>
+                            </h2>
+                            <div class="item-excerpt">
+                                <p>本文作者将结合自身经历展开谈谈运营人成长的三个阶段，以及各阶段要关注的重点。</p>
+                            </div>
+                            <div class="item-meta">
+                                <div class="item-meta-li author">
+                                    <a data-user="3" target="_blank" href="http://demo.wpcom.cn/justnews/user/3/"
+                                       class="avatar">
+                                        <img src="http://demo.wpcom.cn/justnews/wp-content/uploads/ultimatemember/3/profile_photo-80.png?1495534755"
+                                             class="func-um_user gravatar avatar avatar-60 um-avatar um-avatar-uploaded"
+                                             width="60" height="60" alt="WPCOM"> </a>
+                                    <a class="nickname" href="http://demo.wpcom.cn/justnews/user/3/" target="_blank">WPCOM</a>
+                                </div>
+                                <span class="item-meta-li date">2017年4月25日</span>
+                                <span class="item-meta-li views" title="阅读数"><i class="fa fa-eye"></i> <span
+                                        class="data">79</span></span>
+                                <span class="item-meta-li likes" title="点赞数"><i class="fa fa-thumbs-up"></i> <span
+                                        class="data">4</span></span>
+                                <a class="item-meta-li comments" href="http://demo.wpcom.cn/justnews/279.html#comments"
+                                   target="_blank" title="评论数"><i class="fa fa-comment"></i> <span class="data">1</span></a>
+                                <span class="item-meta-li hearts" title="喜欢数"><i class="fa fa-heart"></i> <span
+                                        class="data">1</span></span>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="item">
+                        <div class="item-img">
+                            <a href="http://demo.wpcom.cn/justnews/272.html" title="用户留存：谈谈那些让用户欲罢不能的心理套路"
+                               target="_blank">
+                                <img class="j-lazy"
+                                     src="http://demo.wpcom.cn/justnews/wp-content/uploads/sites/8/2017/04/TTmka9qbysKlUWGDoGxS-480x300.jpg"
+                                     data-original="http://demo.wpcom.cn/justnews/wp-content/uploads/sites/8/2017/04/TTmka9qbysKlUWGDoGxS-480x300.jpg"
+                                     width="480" height="300" alt="用户留存：谈谈那些让用户欲罢不能的心理套路" style="display: inline;"> </a>
+                            <a class="item-category"
+                               href="http://demo.wpcom.cn/justnews/category/%e5%88%9b%e4%b8%9a%e5%88%86%e4%ba%ab"
+                               target="_blank">创业分享</a>
+                        </div>
+                        <div class="item-content">
+                            <h2 class="item-title"><a href="http://demo.wpcom.cn/justnews/272.html"
+                                                      title="用户留存：谈谈那些让用户欲罢不能的心理套路" target="_blank">用户留存：谈谈那些让用户欲罢不能的心理套路</a>
+                            </h2>
+                            <div class="item-excerpt">
+                                <p>商业模式能行之有效的战略本质，正是为用户提供解决需求的价值，继而才有可持续的价值变现，这是“1”和“0”的关系。</p>
+                            </div>
+                            <div class="item-meta">
+                                <div class="item-meta-li author">
+                                    <a data-user="3" target="_blank" href="http://demo.wpcom.cn/justnews/user/3/"
+                                       class="avatar">
+                                        <img src="http://demo.wpcom.cn/justnews/wp-content/uploads/ultimatemember/3/profile_photo-80.png?1495534755"
+                                             class="func-um_user gravatar avatar avatar-60 um-avatar um-avatar-uploaded"
+                                             width="60" height="60" alt="WPCOM"> </a>
+                                    <a class="nickname" href="http://demo.wpcom.cn/justnews/user/3/" target="_blank">WPCOM</a>
+                                </div>
+                                <span class="item-meta-li date">2017年4月25日</span>
+                                <span class="item-meta-li views" title="阅读数"><i class="fa fa-eye"></i> <span
+                                        class="data">79</span></span>
+                                <span class="item-meta-li likes" title="点赞数"><i class="fa fa-thumbs-up"></i> <span
+                                        class="data">9</span></span>
+                                <a class="item-meta-li comments" href="http://demo.wpcom.cn/justnews/272.html#comments"
+                                   target="_blank" title="评论数"><i class="fa fa-comment"></i> <span class="data">1</span></a>
+                                <span class="item-meta-li hearts" title="喜欢数"><i class="fa fa-heart"></i> <span
+                                        class="data">0</span></span>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="load-more-wrap">
+                        <a class="load-more" href="javascript:;">点击查看更多</a>
+                    </li>
+                </ul>
+                <ul class="article-list tab-list"></ul>
+                <ul class="article-list tab-list"></ul>
+                <ul class="article-list tab-list"></ul>
+                <ul class="article-list tab-list"></ul>
+            </div>
+        </div>
+        <aside class="sidebar">
+           <div id="image-ad-3" class="widget widget_views">
+                <h3 class="widget-title">热门标签</h3>
+                <div class="taglist" id="tags">
+                    <a target="_blank" href="http://www.17sucai.com/">菜单</a><a target="_blank"
+                                                                               href="http://www.17sucai.com/">无缝滚动</a><a
+                        target="_blank" href="http://www.17sucai.com/">焦点图</a><a target="_blank"
+                                                                                 href="http://www.17sucai.com/">上下滚动</a><a
+                        target="_blank" href="http://www.17sucai.com/">左右滚动</a><a target="_blank"
+                                                                                  href="http://www.17sucai.com/">滚动条</a><a
+                        target="_blank" href="http://www.17sucai.com/">文字 滚动</a><a target="_blank"
+                                                                                   href="http://www.17sucai.com/">图片滚动</a><a
+                        target="_blank" href="http://www.17sucai.com/">弹出层</a><a target="_blank"
+                                                                                 href="http://www.17sucai.com/">浮动层</a><a
+                        target="_blank" href="http://www.17sucai.com/">html5</a><a target="_blank"
+                                                                                   href="http://www.17sucai.com/">div
+                    布局</a><a target="_blank" href="http://www.17sucai.com/">flash动画</a><a target="_blank"
+                                                                                          href="http://www.17sucai.com/">表单
+                    提交</a><a target="_blank" href="http://www.17sucai.com/">选项卡</a><a target="_blank"
+                                                                                      href="http://www.17sucai.com/">二级导航</a><a
+                        target="_blank" href="http://www.17sucai.com/">表格</a>
+                </div>
+            </div>
+            <div id="views-2" class="widget widget_views"><h3 class="widget-title">热门阅读</h3>
+                <ul>
+                    <li><a href="http://demo.wpcom.cn/justnews/302.html"
+                           title="经验总结｜品牌视觉改版要如何开始做？">经验总结｜品牌视觉改版要如何开始做？</a></li>
+                    <li><a href="http://demo.wpcom.cn/justnews/312.html" title="下一个万亿风口？阿里，京东，苏宁开始竞逐这个市场！">下一个万亿风口？阿里，京东，苏宁开始竞逐这个市场！</a>
+                    </li>
+                    <li><a href="http://demo.wpcom.cn/justnews/267.html" title="“遇见”产品分析报告：遇见陌生人，牵手不可能">“遇见”产品分析报告：遇见陌生人，牵手不可能</a>
+                    </li>
+                    <li><a href="http://demo.wpcom.cn/justnews/296.html" title="总结了一套完整的设计分析思路">总结了一套完整的设计分析思路</a></li>
+                    <li><a href="http://demo.wpcom.cn/justnews/291.html" title="未来交互设计师的5种转型方式">未来交互设计师的5种转型方式</a></li>
+                    <li><a href="http://demo.wpcom.cn/justnews/223.html" title="第一次负责从0到1的产品时要注意哪几点？">第一次负责从0到1的产品时要注意哪几点？</a>
+                    </li>
+                    <li><a href="http://demo.wpcom.cn/justnews/231.html" title="网易精品产品背后的内容运营故事">网易精品产品背后的内容运营故事</a>
+                    </li>
+                    <li><a href="http://demo.wpcom.cn/justnews/242.html" title="星巴克限量版独角兽星冰乐的背后：摸索如何不平庸">星巴克限量版独角兽星冰乐的背后：摸索如何不平庸</a>
+                    </li>
+                    <li><a href="http://demo.wpcom.cn/justnews/110.html" title="看了《速度与激情8》，才发觉这是自动驾驶汽车史上被黑得最惨的一次">看了《速度与激情8》，才发觉这是自动驾驶汽车史上被黑得最惨的一次</a>
+                    </li>
+                    <li><a href="http://demo.wpcom.cn/justnews/272.html" title="用户留存：谈谈那些让用户欲罢不能的心理套路">用户留存：谈谈那些让用户欲罢不能的心理套路</a>
+                    </li>
+                </ul>
+            </div>
+        </aside>
+    </div>
+    <footer class="footer">
+        <div class="container">
+            <div class="clearfix">
+                <div class="footer-col footer-col-logo">
+                    <img src="picture/footer-logo.png" alt="JustNews">
+                </div>
+                <div class="footer-col footer-col-copy">
+                    <ul class="footer-nav hidden-xs">
+                        <li id="menu-item-152"
+                            class="menu-item menu-item-type-post_type menu-item-object-page menu-item-152"><a
+                                href="http://demo.wpcom.cn/justnews/contact">联系我们</a></li>
+                        <li id="menu-item-130"
+                            class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-130"><a
+                                href="http://demo.wpcom.cn/justnews/category/%e8%a1%8c%e4%b8%9a%e5%8a%a8%e6%80%81">行业动态</a>
+                        </li>
+                        <li id="menu-item-157"
+                            class="menu-item menu-item-type-post_type menu-item-object-page menu-item-157"><a
+                                href="http://demo.wpcom.cn/justnews/special">专题列表</a></li>
+                        <li id="menu-item-129"
+                            class="menu-item menu-item-type-post_type menu-item-object-page menu-item-129"><a
+                                href="http://demo.wpcom.cn/justnews/members">用户列表</a></li>
+                    </ul>
+                    <div class="copyright">
+                        Copyright © 2017 WPCOM 版权所有 <a href="http://www.miibeian.gov.cn/" target="_blank"
+                                                       rel="nofollow noopener noreferrer">粤ICP备000000000号</a> Powered by
+                        <a href="https://www.wpcom.cn" target="_blank" rel="noopener noreferrer">WordPress</a>
+                    </div>
+                </div>
+                <div class="footer-col footer-col-sns">
+                    <div class="footer-sns">
+                        <a class="sns-wx" href="javascript:;">
+                            <i class="fa fa-apple"></i>
+                            <span style="background-image:url(images/download.png);"></span>
+                        </a>
+                        <a class="sns-wx" href="javascript:;">
+                            <i class="fa fa-android"></i>
+                            <span style="background-image:url(images/download.png);"></span>
+                        </a>
+                        <a class="sns-wx" href="javascript:;">
+                            <i class="fa fa-weixin"></i>
+                            <span style="background-image:url(images/qrcode.jpg);"></span>
+                        </a>
+                        <a target="_blank" href="http://weibo.com/iztme" rel="nofollow"><i class="fa fa-weibo"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <div class="action" style="top:50%;">
+        <div class="a-box contact">
+            <div class="contact-wrap">
+                <h3 class="contact-title">联系我们</h3>
+                <h4 style="text-align: center;"><span style="color: #2d6ded;"><strong>400-800-8888</strong></span></h4>
+                <p>在线咨询：<a href="http://wpa.qq.com/msgrd?uin=1666839010" target="_blank" rel="noopener noreferrer"><img
+                        class="alignnone" title="点击这里给我发消息" src="picture/fe17b1018b65430ea8a4e374c2e255e5.gif"
+                        alt="点击这里给我发消息" border="0"/></a></p>
+                <p>邮件：admin@example.com</p>
+                <p>工作时间：周一至周五，9:30-18:30，节假日休息</p>
+            </div>
+        </div>
+        <div class="a-box wechat">
+            <div class="wechat-wrap">
+                <img src="images/qrcode.jpg" alt="QR code">
+            </div>
+        </div>
+        <div class="bdsharebuttonbox" data-tag="global"><a href="#" class="a-box share bds_more" data-cmd="more"></a>
+        </div>
+        <div class="a-box gotop" id="j-top" style="display: none;"></div>
+    </div>
+    <script type='text/javascript' src='js/my.js'></script>
+    <script type='text/javascript' src='js/main.js'></script>
+    <script type='text/javascript' src='js/imagesloaded.min.js'></script>
+    <script type='text/javascript' src='js/masonry.min.js'></script>
+    <script type='text/javascript' src='js/jquery.masonry.min.js'></script>
+    <script type='text/javascript' src='js/zh_cn.js'></script>
+    <script type='text/javascript' src='js/wp-embed.min.js'></script>
+    <script>window._bd_share_config = {
+        "common": {
+            "bdSnsKey": {},
+            "bdText": "",
+            "bdMini": "2",
+            "bdMiniList": false,
+            "bdPic": "",
+            "bdStyle": "1",
+            "bdSize": "16"
+        },
+        "share": [{"tag": "single", "bdSize": 16}, {"tag": "global", "bdSize": 16, bdPopupOffsetLeft: -227}],
+        url: 'http://demo.wpcom.cn/justnews/wp-content/themes/JustNews'
+    };
+    with (document)0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'js/share.js?v=89860593.js?cdnversion=' + ~(-new Date() / 36e5)];</script>
+</body>
+</html>

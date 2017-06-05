@@ -1,0 +1,7 @@
+<h3 class="widget-title">热门标签</h3>
+<div class="entry-tag" >
+<!-- php:$tag_list = phpok('biaoqianliebiao') -->
+<!-- loop from=$tag_list key=$key value=$value id=mindex-->
+    <a  href="{if $value.url}{$value.url}{else}{url ctrl=tag title=$value.title /}{/if}">{$value.title}</a>
+<!-- /loop -->
+</div>
