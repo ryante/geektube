@@ -35,7 +35,7 @@ class DataModel{
 
     public function getCateParentId($cateid) {
     	$table = $this->dbprefix . "cate"; 
-    	$cateInfo = $this->__db->select($table,'parent_id',"status=1 and site_id=1");
+    	$cateInfo = $this->__db->select($table,'parent_id',"status=1 and site_id=1  and id={$cateid}");
     	return empty($cateInfo[0]['parent_id']) ? null : $cateInfo[0]['parent_id'];
     }
 

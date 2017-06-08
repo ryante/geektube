@@ -194,12 +194,16 @@ class dxc_api{
         $saveData['note'] = $post_data['field_data']['note'];
         $saveData['thumb'] = $this->dataFormatObj->thumbFormat($post_data['attach_list']['thumb']['attach'], $attach_temp_dir . $post_data['id'].'/');
         $saveData['content'] = $this->dataFormatObj->contentFormat($post_data['field_data']['content'], $post_data['attach_list']['content'], $attach_temp_dir . $post_data['id'].'/');
-        $id = $this->dataModelObj->save($saveData);
+        $insertId = $this->dataModelObj->save($saveData);
+
+        $logData = json_encode($saveData);
+        $log = date('Y-m-d H:i:s') . "  ip:{$_SERVER['REMOTE_ADDR']}   linkurl:{$post_data['field_data']['linkurl']}    dataid:{$post_data['id']}    cateid:{$cateid}   insertId:{$insertId}";
+        file_put_contents('tmp/publish.log', $log . "\n", FILE_APPEND );
 
         //数据发布成功之后，返回两个东西
         //data_url 发布之后的文章地址
         //data_id 发布之后的文章id
-		$result_data['data']['data_url'] = 'http://' . $_SERVER['HTTP_HOST'] . '/index.php?id=' . $id;
+		$result_data['data']['data_url'] = 'http://' . $_SERVER['HTTP_HOST'] . '/index.php?id=' . $insertId;
 		$result_data['data']['data_id'] = $post_data['id'];
 		return $result_data;
 

@@ -64,7 +64,11 @@
 	<div class="c_left">
 		<ul>
 			<!-- loop from=$iconlist key=$k value=$v -->
-			<li appfile="{$v.appfile}"><a href="javascript:$.win('{func P_Lang $v.title}','{$v.url}');void(0);"><span class="icon-{$v.icon}"></span>{func P_Lang $v.title}</a></li>
+			<!-- if $v.ext && stripos($v.url,'c=list') -->
+			<!-- php: $idArr = explode('=',$v.ext)-->
+			<!-- php: $listId = $idArr[1]-->
+			<!-- /if  -->
+			<li appfile="{$v.appfile}" {if $v.ext && stripos($v.url,'c=list') }id="{$listId}{/if}"><a href="javascript:$.win('{func P_Lang $v.title}','{$v.url}');void(0);"><span class="icon-{$v.icon}"></span>{func P_Lang $v.title}</a></li>
 			<!-- /loop -->
 		</ul>
 	</div>
@@ -131,10 +135,14 @@ function pendding_info()
 					$("li[pid="+list[key]['id']+"] a").append(html.replace('{total}',list[key]['total']));
 					total = parseInt(total) + parseInt(list[key]['total']);
 				}
+				if(total>0){
+					$("li[id='" + list[key]['id'] + "']" ).append(html.replace('{total}',total));
+				}
 			}
-			if(total>0){
-				$("li[appfile=list] a").append(html.replace('{total}',total));
-			}
+			// if(total>0){
+			// 		$("li[appfile=list] a[id='" + list[key]['id'] + "']" ).append(html.replace('{total}',total));
+			// 	}
+			
 			window.setTimeout("pendding_info()", 10000);
 		}else{
 			window.setTimeout("pendding_info()", 12000);
