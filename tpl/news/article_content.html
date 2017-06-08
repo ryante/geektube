@@ -9,7 +9,7 @@
                     <div class="entry-head">
                         <h1 class="entry-title">{$rs.title}</h1>
                         <div class="entry-info">
-                            <span>{=date('Y-m-d H:i')}</span>
+                            <span>{=date('Y-m-d',$value.dateline)}</span>
                             <span class="dot">•</span>
                             <!-- php:$cateid = $rs.cate_id-->
                             <a href="{$rs['_catelist'][$cateid]['url']}"
