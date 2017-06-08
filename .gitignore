@@ -1,4 +1,5 @@
 data/
 res/
 dxc_api/tmp/
+dxc_api/config/
 config.php

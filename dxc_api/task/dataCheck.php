@@ -75,17 +75,25 @@ class DataCheck{
             $startTime = time() - $checkTime * 60;
             $newsList = $this->getCheckList($startTime);
             if (empty($newsList)) {
-                return false;
+                $str =  date('Y-m-d H:i:s') . "	no news need to check\n";
+		file_put_contents('/tmp/data_check.log', $str, FILE_APPEND);
+                exit;
             }
             foreach ($newsList as $key => $value) {
                 $result = $this->publish($value['id']);
                 $resultStr = $result ? 'success' : 'error';
-                echo date('Y-m-d H:i:s') . "  id:{$value['id']}  update:{$resultStr}\n";
+                $str =  date('Y-m-d H:i:s') . "  id:{$value['id']}  update:{$resultStr}\n";
+		file_put_contents('/tmp/news_check.log', $str, FILE_APPEND);
             }
         } else {
-            echo date('Y-m-d H:i:s') . "just allow man check\n";
+            $str = date('Y-m-d H:i:s') . "just allow man check\n";
+	    file_put_contents('/tmp/data_check.log', $str, FILE_APPEND);
         }
     }
     
+}
+if ($argv[1] != 'Z425MmWMR') {
+    echo date('Y-m-d H:i:s') . "	not allowed work!\n";
+    die;
 }
 DataCheck::getInstance()->main();
