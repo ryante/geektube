@@ -240,7 +240,7 @@ class index_control extends phpok_control
 			}
 		}
 		$this->assign('list_rslist',$rslist);
-		return $this->fetch('index_block_listsetting');
+		// return $this->fetch('index_block_listsetting');
 	}
 
 	/**

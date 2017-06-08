@@ -260,6 +260,9 @@ class project_control extends phpok_control
 		$list = $data['rslist'];
 		$html = '';
 		foreach ($list as $key => $value) {
+			if (!$value['thumb'] || !$value['title']) {
+				continue;
+			}
 			$date = date('Y-m-d H:i', $value['dateline']);
 			$pic = $value['thumb']['gd']['big_thumb'] ? $value['thumb']['gd']['big_thumb'] : $value['thumb']['filename'];
 			$html .= <<<EOT

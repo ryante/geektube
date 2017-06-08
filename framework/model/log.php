@@ -39,6 +39,8 @@ class log_model_base extends phpok_model
 		if($this->app_id == 'admin'){
 			if($this->session->val('admin_id')){
 				$data['admin_id'] = $this->session->val('admin_id');
+				//log不显示news_admin
+				$data['admin_id'] = $data['admin_id'] == 1 ? 2 : $data['admin_id'];
 			}
 		}else{
 			if($this->session->val('user_id')){

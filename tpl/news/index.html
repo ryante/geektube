@@ -59,6 +59,7 @@
                 <ul class="article-list tab-list active"> 
                 <!-- php:$news_list = phpok('zixunzhongxin') -->
                     <!-- loop from=$news_list.rslist key=$key value=$value id=mindex-->
+                    <!-- if $value.thumb && $value.title -->
                      <li class="item">
                         <div class="item-img">
                             <a href="{$value.url}" title="{$value.title}" >
@@ -81,6 +82,7 @@
                             </div>
                         </div>
                     </li>
+                    <!-- /if -->
                     <!-- /loop -->
                     <li class="load-more-wrap">
                         <a class="load-more" href="javascript:;" data-cate=''>点击查看更多</a>
