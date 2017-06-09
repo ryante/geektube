@@ -44,8 +44,8 @@ class DataCheck{
         }
         $listTable = $this->dbprefix . 'list';
         $detailTable = $this->dbprefix . 'list_22';
-        $endTime = $startTime - 60;//计划任务每分钟运行一遍，所以减60
-        $query = "SELECT a.id FROM {$listTable} a INNER JOIN {$detailTable} b ON a.id = b.id WHERE a.status=0 AND b.publish_time >= {$startTime} AND b.publish_time < {$endTime}";
+        //$endTime = $startTime - 60;//计划任务每分钟运行一遍，所以减60
+        $query = "SELECT a.id FROM {$listTable} a INNER JOIN {$detailTable} b ON a.id = b.id WHERE a.status=0 AND b.publish_time > 0 AND b.publish_time <= {$startTime}";
         $result = $this->__db->query($query);
         if (empty($result)) {
             return false;

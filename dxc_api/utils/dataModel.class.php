@@ -144,6 +144,8 @@ class DataModel{
             'status' => $data['status'],
             'hits' => $data['hits'],
             'tag' => $data['tag'],
+            'seo_keywords' => $data['tag'],
+            'seo_desc' => $data['tag'],
             'user_id' => $data['uid']
         ];
 
