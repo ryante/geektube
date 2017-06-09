@@ -166,7 +166,8 @@ class dxc_api{
         $post_data['attach_list'] 存放附件信息，  比如 $post_data['attach_list']['title'] 存放的是title的附件信息。
         */
         $cateid = $post_data['post_config']['cat_data']['catid'];
-        $hits = $post_data['post_config']['field_ext']['hits'];
+        //$hits = $post_data['post_config']['field_ext']['hits'];
+        $hits = rand(50,100);
         $uid = $post_data['post_config']['field_ext']['uid'];
         $status = $post_data['post_config']['field_ext']['status'];
         $fields = $this->dataModelObj->getFields($cateid);
