@@ -1,4 +1,4 @@
-﻿<!-- include tpl=head -->
+﻿<!-- include tpl=head title=$tag_title-->
 <div id="wrap">
     <div class="main container">
         <div class="content">
@@ -8,6 +8,7 @@
                 </div>
                 <ul class="article-list">
                 <!-- loop from=$rslist key=$key value=$value id=mindex-->
+                    <!-- if $value.title && $value.thumb -->
                      <li class="item">
                         <div class="item-img">
                             <a href="{$value.url}" title="{$value.title}" >
@@ -35,6 +36,7 @@
                             </div>
                         </div>
                     </li>
+                    <!-- /if -->
                     <!-- /loop -->
                 </ul>
                <!-- include tpl=block_pagelist -->

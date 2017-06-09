@@ -1,5 +1,4 @@
-<!-- include tpl=head -->
-</header>
+<!-- include tpl=head title=$rs.title -->
 <div id="wrap">
     <div class="main container">
         <div class="content">
@@ -7,7 +6,7 @@
                      class="post-312 post type-post status-publish format-standard has-post-thumbnail hentry category-1 tag-82 tag-81 tag-83">
                 <div class="entry">
                     <div class="entry-head">
-                        <h1 class="entry-title">{$rs.title}</h1>
+                        <h1 class="entry-title">{$rs.title}{$seo_desc}</h1>
                         <div class="entry-info">
                             <span>{=date('Y-m-d',$rs.dateline)}</span>
                             <span class="dot">•</span>

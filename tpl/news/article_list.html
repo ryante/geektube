@@ -1,4 +1,4 @@
-﻿<!-- include tpl=head -->
+﻿<!-- include tpl=head title=$cate_rs.title-->
 <div id="wrap">
     <div class="main container">
         <div class="content">
@@ -8,6 +8,7 @@
                 </div>
                 <ul class="article-list">
                 <!-- loop from=$rslist key=$key value=$value id=mindex-->
+                 <!-- if $value.title && $value.thumb -->
                      <li class="item">
                         <div class="item-img">
                             <a href="{$value.url}" title="{$value.title}" >
@@ -30,6 +31,7 @@
                             </div>
                         </div>
                     </li>
+                    <!-- /if -->
                     <!-- /loop -->
                     <li class="load-more-wrap">
                         <a class="load-more" href="javascript:;" {if $cate_rs}data-cate="{$cate_rs.identifier}"{/if}>点击查看更多</a>
