@@ -171,9 +171,17 @@ class dxc_api{
 		$uid = $post_data['post_config']['field_ext']['uid'];
 		$status = $post_data['post_config']['field_ext']['status'];
 		$fields = $this->dataModelObj->getFields($cateid);
-
+		$dateline = $post_data['field_data']['dateline'];
+		if (empty($dateline)) {
+			$dateline = time();
+		} else {
+			if (!is_numeric($dateline)) {
+				$dateline = str_replace(['年','月','日','时','分','秒'],['-','-','',':',':',':'],$dateline);
+				$dateline = strtotime($dateline);
+			}
+		}
 		foreach ($fields as $k => $v) {
-			if ($v['identifier'] == 'tag') {
+			if ($v['identifier'] == 'tag' || $v['identifier'] == 'dateline') {
 				continue;
 			}
 			if (empty($post_data['field_data'][$v['identifier']])) {
@@ -188,17 +196,17 @@ class dxc_api{
 		$saveData['data_id'] = $post_data['id'];
 		$saveData['publish_time'] = time();
 		$saveData['status'] = $status;
-		$saveData['title'] = $post_data['field_data']['title'];
+		$saveData['title'] = strip_tags($post_data['field_data']['title']);
 		$saveData['linkurl'] = $post_data['field_data']['linkurl'];
 		$saveData['tag'] = $this->dataFormatObj->tagFormat($post_data['field_data']['tag']);
-		$saveData['dateline'] = $post_data['field_data']['dateline'];
-		$saveData['note'] = $post_data['field_data']['note'];
+		$saveData['dateline'] = $dateline;
+		$saveData['note'] = strip_tags($post_data['field_data']['note']);
 		$saveData['thumb'] = $this->dataFormatObj->thumbFormat($post_data['attach_list']['thumb']['attach'], $attach_temp_dir . $post_data['id'].'/');
 		$saveData['content'] = $this->dataFormatObj->contentFormat($post_data['field_data']['content'], $post_data['attach_list']['content'], $attach_temp_dir . $post_data['id'].'/');
 		$insertId = $this->dataModelObj->save($saveData);
 
 		$logData = json_encode($saveData);
-		$log = date('Y-m-d H:i:s') . "  ip:{$_SERVER['REMOTE_ADDR']}   linkurl:{$post_data['field_data']['linkurl']}    dataid:{$post_data['id']}    cateid:{$cateid}   insertId:{$insertId}";
+		$log = date('Y-m-d H:i:s') . "  ip:{$_SERVER['REMOTE_ADDR']}   linkurl:{$post_data['field_data']['linkurl']}    dataid:{$post_data['id']}    cateid:{$cateid}   insertId:{$insertId}  dateline:{$dateline}";
 		file_put_contents('tmp/publish.log', $log . "\n", FILE_APPEND );
 
 		//数据发布成功之后，返回两个东西

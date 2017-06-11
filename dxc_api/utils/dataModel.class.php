@@ -68,13 +68,16 @@ class DataModel{
         $listTable = $this->dbprefix . "tag"; 
         $relateTable = $this->dbprefix . "tag_stat"; 
         foreach ($tag as $key => $value) {
+		if(empty($value)) {
+			continue;
+		}
             $exist = $this->__db->select($listTable, 'id', "title='{$value}'");
             if (!empty($exist)) {
                 $tagId = $exist[0]['id'];
             } else {
                 $listData = [
                     'site_id' => 1,
-                    'title' => $value,
+                    'title' => strip_tags($value),
                 ];
                 $listResult = $this->__db->insert($listTable,$listData);
                 $tagId = $this->__db->next_id();
