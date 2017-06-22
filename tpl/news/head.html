@@ -8,6 +8,7 @@
      <title><!-- if $title -->{$title} - <!-- /if -->{$config.title}<!-- if $seo.title --> - {$seo.title}<!-- /if --></title>
     <meta name="keywords" content="{$seo.keywords}">
     <meta name="description" content="{$seo.description}">
+{$config.meta}
     <link rel='stylesheet' href='css/style.css' type='text/css' media='all'/>
     <link rel='stylesheet' href='css/um.min.css' type='text/css' media='all'/>
     <link rel='stylesheet' href='css/my.css' type='text/css' media='all'/>
@@ -25,6 +26,7 @@
     </style>
 </head>
 <body class="home blog">
+
 <header class="header">
     <div class="container clearfix">
         <div class="navbar-header">
@@ -33,7 +35,7 @@
                 <span class="icon-bar icon-bar-2"></span>
                 <span class="icon-bar icon-bar-3"></span>
             </button>
-            <a href="{$sys.url}" class="logo" title="{$config.title}"><img src="{$config.logo}" alt="{$config.title}" /></a>
+            <a href="{$sys.url}" class="logo" title="{$config.title}"><img src="{$config.about_web.head_logo.filename}" {if $config.about_web.head_logo_width}width="{$config.about_web.head_logo_width}"{/if}  {if $config.about_web.head_logo_height}height="{$config.about_web.head_logo_height}"{/if} alt="{$config.title}" /></a>
         </div>
         <div class="collapse navbar-collapse">
             <nav class="navbar-left primary-menu">

@@ -8958,7 +8958,7 @@ html[xmlns] .flexslider .slides {
 
 .header .logo img {
     width: auto;
-    max-height: 32px;
+//    max-height: 32px;
     transition: all .3s ease-out 0s;
     vertical-align: top
 }

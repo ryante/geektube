@@ -2,7 +2,7 @@
         <div class="container">
             <div class="clearfix">
                 <div class="footer-col footer-col-logo">
-                    <img src="{$config.logo}" alt="{$config.title}" />
+		    <img src="{$config.about_web.foot_logo.filename}" {if $config.about_web.foot_logo_width}width="{$config.about_web.foot_logo_width}"{/if}  {if $config.about_web.foot_logo_height}height="{$config.about_web.foot_logo_height}"{/if} alt="{$config.title}" />
                 </div>
                 <div class="footer-col footer-col-copy">
                     <ul class="footer-nav hidden-xs">
@@ -10,6 +10,7 @@
                         <!-- loop from=$list.rslist key=$key value=$value id=$list_id -->
                         <a href="{$value.url}" title="{$value.title}" target="{$value.target}">{$value.title}</a>&nbsp;&nbsp;&nbsp;&nbsp;
                         <!-- /loop -->
+{$config.about_web.statjs}
                     </ul>
                     <div class="copyright">
                         {$config.about_web.copyright}
@@ -61,7 +62,6 @@
     <script type='text/javascript' src='js/masonry.min.js'></script>
     <script type='text/javascript' src='js/jquery.masonry.min.js'></script>
     <script type='text/javascript' src='js/wp-embed.min.js'></script>
-{$config.about_web.statjs}
  <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"16"},"share":[{"tag" : "single", "bdSize" : 16}, {"tag" : "global","bdSize" : 16,bdPopupOffsetLeft:-227}],url:'http://demo.wpcom.cn/justnews/wp-content/themes/JustNews'};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
 </body>
 </html> 
